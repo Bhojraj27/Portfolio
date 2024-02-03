@@ -294,7 +294,7 @@ export default function Contact() {
               </div>
             </div>
             <h3 className={classes.h3} data-aos="fade-up">
-              hello@drake.design
+              hello@bhojrajchavan.com
             </h3>
             <ToastContainer />
             <Formik
