@@ -233,9 +233,9 @@ const Services = () => {
                      <Grid item xs={12} sm={12} md={4} lg={12}  data-aos="fade-up" >
                       <div className={classes.items1} >
                       <i className="las la-bezier-curve" />
-                            <h2>Website Development</h2>
-                            <p >I created responsive website like admin panels, landing pages, user panels,portfolios by using react, material-ui.</p>
-                            <span className="projects">5+ live Projects</span>
+                            <h2>Full Stack SaaS Development</h2>
+                            <p >I build scalable React.js applications, Node.js APIs, AI integrations, admin systems, and cloud-backed workflows for production products.</p>
+                            <span className="projects">3 live Projects</span>
                       </div>
                         </Grid>
                         

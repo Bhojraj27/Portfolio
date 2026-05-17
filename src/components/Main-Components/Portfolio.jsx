@@ -199,7 +199,7 @@ export default function Portfolio() {
                   <ul className={`${classes.portfolioCategories}`}>
                     <li>
                       <a
-                        href="https://www.react.com"
+                        href="https://react.dev"
                         className={classes.portfolioCategoriesLink}
                       >
                         React
@@ -207,25 +207,25 @@ export default function Portfolio() {
                     </li>
                     <li>
                       <a
-                        href="https://www.html5.com"
+                        href="https://www.typescriptlang.org"
                         className={classes.portfolioCategoriesLink}
                       >
-                        Html
+                        TypeScript
                       </a>
                     </li>
                     <li>
                       <a
-                        href="https://www.css.com"
+                        href="https://nodejs.org"
                         className={classes.portfolioCategoriesLink}
                       >
-                        Css
+                        Node.js
                       </a>
                     </li>
                   </ul>
                 </div>
                 <h2 className={classes.portfolioItemTitle}>
-                  <a href="https://www.Bureau - Architecture Studio Website.com">
-                    Personal - Portfolio Website
+                  <a href="https://app.bynaus.ai">
+                    Bynaus - Construction SaaS
                   </a>
                 </h2>
               </div>
@@ -245,25 +245,25 @@ export default function Portfolio() {
                   <ul className={`${classes.portfolioCategories}`}>
                     <li>
                       <a
-                        href="https://www.wordpress.com"
+                        href="https://react.dev"
                         className={classes.portfolioCategoriesLink}
                       >
-                        WordPress
+                        React
                       </a>
                     </li>
                     <li>
                       <a
-                        href="https://www.larevel.com"
+                        href="https://tailwindcss.com"
                         className={classes.portfolioCategoriesLink}
                       >
-                        Laravel/PHP
+                        Tailwind
                       </a>
                     </li>
                   </ul>
                 </div>
                 <h2 className={classes.portfolioItemTitle}>
-                  <a href="https://bhojrajchavan-portfolio.netlify.app/">
-                  Personal - Portfolio Website 2</a>
+                  <a href="/">
+                  YAU TeamUp - Sports Management</a>
                 </h2>
               </div>
             </Grid>
@@ -282,25 +282,25 @@ export default function Portfolio() {
                   <ul className={`${classes.portfolioCategories}`}>
                     <li>
                       <a
-                        href="https://www.figma.com"
+                        href="https://react.dev"
                         className={classes.portfolioCategoriesLink}
                       >
-                        React JS
+                        React.js
                       </a>
                     </li>
                     <li>
                       <a
-                        href="https://www.webflow.com"
+                        href="https://expressjs.com"
                         className={classes.portfolioCategoriesLink}
                       >
-                        Material UI 4
+                        Express.js
                       </a>
                     </li>
                   </ul>
                 </div>
                 <h2 className={classes.portfolioItemTitle}>
-                  <a href="https://frolicking-choux-55b922.netlify.app/">
-                  Landing Page
+                  <a href="/">
+                  Jeff Music Therapy Admin Panel
                   </a>
                 </h2>
               </div>
@@ -320,25 +320,25 @@ export default function Portfolio() {
                   <ul className={`${classes.portfolioCategories}`}>
                     <li>
                       <a
-                        href="https://www.figma.com"
+                        href="https://platform.openai.com"
                         className={classes.portfolioCategoriesLink}
                       >
-                        React JS
+                        OpenAI
                       </a>
                     </li>
                     <li>
                       <a
-                        href="https://www.materialui.com"
+                        href="https://ai.google.dev"
                         className={classes.portfolioCategoriesLink}
                       >
-                        Material UI
+                        Gemini
                       </a>
                     </li>
                   </ul>
                 </div>
                 <h2 className={classes.portfolioItemTitle}>
                   <a href="/">
-                    JeffMusic Therapy -Admin Panel
+                    Bynaus AI Companion Features
                   </a>
                 </h2>
               </div>

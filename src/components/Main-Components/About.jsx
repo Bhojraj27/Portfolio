@@ -103,13 +103,15 @@ export default function About() {
               <i className={`${classes.subTitleIcon} lar la-user`}></i> About
             </Typography>
             <Typography variant="h1" className={classes.h1} data-aos="fade-up">
-              Every great design begins with <br />
-              an even <span className={classes.span}>better story</span>
+              Building scalable products with <br />
+              a strong <span className={classes.span}>engineering story</span>
             </Typography>
           </div>
           <Typography className={classes.p} data-aos="fade-up">
-          I'm the kind of person who approaches life with a positive outlook. I find joy in a multitude of things – reading, writing, deep thinking, and letting my imagination run wild. I'm equally fond of engaging in conversations and being a good listener.
-Life, for me, is a canvas, and I'm here to paint it with vibrant experiences and endless curiosity. I hope the impression I have of myself aligns with the one you're forming as you read this. Thanks for stopping by!
+            Senior Full Stack Developer with expertise in architecting and delivering
+            high-performance SaaS web applications. I build scalable React.js PWAs,
+            engineer robust Node.js and Express backend systems, and integrate complex
+            third-party APIs including Auth0, Stripe, OpenAI, and Gemini.
           </Typography>
         </div>
       </div>

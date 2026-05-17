@@ -184,7 +184,7 @@ export default function Herosec() {
 
                 <Typography className={classes.h1} data-aos="fade-up">
                   Say Hi from <span className={classes.span}>Bhojraj</span>,
-                  Frontend Developer
+                  Senior Full Stack Developer
                 </Typography>
               </div>
               <Typography
@@ -193,8 +193,8 @@ export default function Herosec() {
                 className={classes.p}
                 data-aos="fade-up"
               >
-                I design and code beautifully simple things and I love what I
-                do. Just simple like that!
+                I architect high-performance SaaS applications with scalable React
+                frontends, robust Node.js backends, and practical AI integrations.
               </Typography>
               <Button
                 href="#portfolio"
@@ -210,17 +210,17 @@ export default function Herosec() {
               </Button>
               <div className={classes.facts}>
                 <div className="left" data-aos="fade-right">
-                  <h1 className={classes.factsH1}>6+</h1>
+                  <h1 className={classes.factsH1}>2+</h1>
                   <p className={classes.factsP}>
-                    Months Of <br></br>
+                    Years Of <br></br>
                     Experience
                   </p>
                 </div>
                 <div className="right " data-aos="fade-left">
-                  <h1 className={classes.factsH1}>4+</h1>
+                  <h1 className={classes.factsH1}>500+</h1>
                   <p className={classes.factsP}>
-                    projects completed on <br />
-                   FrontEnd Development
+                    Users Served On <br />
+                    SaaS Platforms
                   </p>
                 </div>
               </div>

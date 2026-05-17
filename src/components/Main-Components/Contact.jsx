@@ -285,7 +285,7 @@ export default function Contact() {
                 <i
                   className={`las la-grip-vertical ${classes.subTitleIcon}`}
                 ></i>{" "}
-                Portfolio
+                Contact
               </Typography>
               <div className={classes.sectionHeader}>
                 <Typography variant="h1" data-aos="fade-up">
@@ -294,7 +294,7 @@ export default function Contact() {
               </div>
             </div>
             <h3 className={classes.h3} data-aos="fade-up">
-              hello@bhojrajchavan.com
+              bhojrajchavan5@gmail.com
             </h3>
             <ToastContainer />
             <Formik
@@ -404,9 +404,9 @@ export default function Contact() {
                           error={touched.subject && !!errors.subject}
                         >
                           <MenuItem value="">Select a subject</MenuItem>
-                          <MenuItem value="subject1">Subject 1</MenuItem>
-                          <MenuItem value="subject2">Subject 2</MenuItem>
-                          <MenuItem value="subject3">Subject 3</MenuItem>
+                          <MenuItem value="role">Senior role opportunity</MenuItem>
+                          <MenuItem value="project">Project collaboration</MenuItem>
+                          <MenuItem value="consulting">Consulting discussion</MenuItem>
                         </Field>
                         <div style={{ height: "10px" }}>
                           <ErrorMessage

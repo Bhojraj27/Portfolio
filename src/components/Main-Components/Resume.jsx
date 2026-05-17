@@ -172,38 +172,36 @@ export default function Resume() {
 
           <div className="resume-timeline">
             <div className={`item scroll-animation`} data-aos="fade-right">
-              <span className={`${classes.span} date`}>From 15-02-2023 to 31-Sep-2023 </span>
-              <h2>Frontend Developer &amp; Developer</h2>
-              <p>Mobiloitte Technologies, Pune</p>
-              <h2>Front-End React JS Developer</h2>
-              <p>Multiple live onsite projects</p>
+              <span className={`${classes.span} date`}>April 2024 - Present</span>
+              <h2>Sr. Software Developer</h2>
+              <p>Walstar Technologies</p>
+              <h2>Bynaus SaaS Platform</h2>
+              <p>Lead full-stack development for 500+ users, integrated OpenAI, Google Gemini, LiteLLM, and Ragie, and built GPS workforce, cron, and PDF vector workflows.</p>
             </div>
             <div className={`item scroll-animation`} data-aos="fade-left">
+              <span className={`${classes.span} date`}>March 2023 - October 2023</span>
+              <h2>Software Developer Trainee</h2>
+              <p>Mobiloitte Technologies</p>
+              <h2>React.js Development</h2>
+              <p>Built React interfaces, integrated RESTful APIs, contributed to sprint planning, and introduced shared UI component libraries.</p>
+            </div>
+            <div className={`item scroll-animation`} data-aos="fade-right">
               <span className={`${classes.span} date`}>2020 - 2023</span>
               <h2>Bachelors of Engineering </h2>
               <p>Computer Engineering</p>
               <h2>College</h2>
-              <p>Dr D Y Patil College Of Engineering and Innovation, Varale-Pune</p>
-              <h2>CGPA</h2>
-              <p>8.62(78.44%) </p>
-              
+              <p>Dr D Y Patil College, Pune</p>
+              <h2>Percentage</h2>
+              <p>78.44%</p>
             </div>
-            <div className={`item scroll-animation`} data-aos="fade-right">
+            <div className={`item scroll-animation`} data-aos="fade-left">
               <span className={`${classes.span} date`}>2017 - 2020</span>
               <h2>Diploma </h2>
                 <p>Computer Engineering</p>
               <h2>College</h2>
-              <p>Sharad Institute Of Technology and Polytechnoc, Yadrav-Ichalkaranji</p>
+              <p>Sharad Institute, Ichalkaranji</p>
               <h2>Percentage</h2>
                 <p>85.94%</p>
-            </div>
-            <div className={`item scroll-animation`} data-aos="fade-right">
-              <span className={`${classes.span} date`}>2017 - 2020</span>
-              <h2>SSC (10th) </h2>
-             <h2>HighSchool </h2>
-              <p>Raje VijaySingh Daphale HighSchool Dphalapur</p>
-              <h2>Percentage</h2>
-                <p>73.40%</p>
             </div>
           </div>
         </div>

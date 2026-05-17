@@ -141,10 +141,10 @@ export default function Skills() {
                       className={classes.skillImage}
                     />
                     <Typography variant="h1" className={classes.skillPercent}>
-                      70%
+                      90%
                     </Typography>
                   </Box>
-                  <Typography className={classes.skillName}>HTML</Typography>
+                  <Typography className={classes.skillName}>React.js</Typography>
                 </div>
               </Grid>
               <Grid item xs={4} md={6} lg={3} xl={3} data-aos="fade-up">
@@ -156,10 +156,10 @@ export default function Skills() {
                       className={classes.skillImage}
                     />
                     <Typography variant="h1" className={classes.skillPercent}>
-                      65%
+                      85%
                     </Typography>
                   </Box>
-                  <Typography className={classes.skillName}>CSS</Typography>
+                  <Typography className={classes.skillName}>TypeScript</Typography>
                 </div>
               </Grid>
               <Grid item xs={4} md={6} lg={3} xl={3} data-aos="fade-down">
@@ -171,10 +171,10 @@ export default function Skills() {
                       className={classes.skillImage}
                     />
                     <Typography variant="h1" className={classes.skillPercent}>
-                      60%
+                      88%
                     </Typography>
                   </Box>
-                  <Typography className={classes.skillName}>Javascript</Typography>
+                  <Typography className={classes.skillName}>Node.js</Typography>
                 </div>
               </Grid>
               <Grid item xs={4} md={6} lg={3} xl={3} data-aos="fade-left">
@@ -186,10 +186,10 @@ export default function Skills() {
                       className={classes.skillImage}
                     />
                     <Typography variant="h1" className={classes.skillPercent}>
-                      70%
+                      86%
                     </Typography>
                   </Box>
-                  <Typography className={classes.skillName}>React</Typography>
+                  <Typography className={classes.skillName}>Express.js</Typography>
                 </div>
               </Grid>
               <Grid item xs={4} md={6} lg={3} xl={3} data-aos="fade-right" >
@@ -201,10 +201,10 @@ export default function Skills() {
                       className={classes.skillImage}
                     />
                     <Typography variant="h1" className={classes.skillPercent}>
-                      65%
+                      82%
                     </Typography>
                   </Box>
-                  <Typography className={classes.skillName}>Bootstrap</Typography>
+                  <Typography className={classes.skillName}>OpenAI / Gemini</Typography>
                 </div>
               </Grid>
               <Grid item xs={4} md={6} lg={3} xl={3} data-aos="fade-up">
@@ -216,11 +216,11 @@ export default function Skills() {
                       className={classes.skillImage}
                     />
                     <Typography variant="h1" className={classes.skillPercent}>
-                      70%
+                      80%
                     </Typography>
                   </Box>
                   <Typography className={classes.skillName}>
-                    Node JS
+                    AWS / MongoDB
                   </Typography>
                 </div>
               </Grid>

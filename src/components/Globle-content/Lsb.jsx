@@ -179,17 +179,11 @@ const useStyles = makeStyles((theme) => ({
 export default function Lsb() {
   const classes = useStyles();
   const downloadResume = () => {
-    // Create a link element
     const link = document.createElement("a");
-    // Set the href attribute to the path of your resume PDF file
-    link.href = "pdf/bhojraj-chavan-resume.pdf";
-    // Set the download attribute with the desired file name
-    link.download = "pdf/bhojraj-chavan-resume.pdf";
-    // Append the link to the document
+    link.href = "/pdf/bhojraj-chavan-resume.pdf";
+    link.download = "Bhojraj-Chavan-Resume.pdf";
     document.body.appendChild(link);
-    // Trigger a click on the link to start the download
     link.click();
-    // Remove the link from the document
     document.body.removeChild(link);
   };
   return (
@@ -197,38 +191,33 @@ export default function Lsb() {
       <div className={classes.leftSidebar}>
       <div className={classes.sidebarHeader}>
         <img src="images/b.png" alt="Logo" height="40" width="40"/>
-        <span className={classes.designation}>Software & Frontend Developer</span>
+        <span className={classes.designation}>Senior Full Stack Developer</span>
       </div>
       <img className={classes.me} src="images/bhojraj.jpg" alt="Me" />
       <Typography className={classes.email}>Bhojraj Chavan</Typography>
       <Typography className={classes.address}>
-        Base in Pune
+        Kolhapur, Maharashtra
       </Typography>
       <Typography className={classes.copyright}>
-        &copy; 2023 Bhorjaj. All Rights Reserved
+        &copy; 2026 Bhojraj. All Rights Reserved
       </Typography>
       <ul className={classes.socialProfile}>
         <li>
-          <a href="https://twitter.com/" className={classes.socialProfileLink}>
-            <i className={`lab la-twitter`}></i>
-          </a>
-        </li>
-        <li>
-          <a href="https://dribble.com/" className={classes.socialProfileLink}>
-            <i className="lab la-dribbble"></i>
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://instagram.com/"
-            className={classes.socialProfileLink}
-          >
-            <i className="lab la-instagram"></i>
+          <a href="https://linkedin.com/in/bhojraj-chavan" className={classes.socialProfileLink}>
+            <i className="lab la-linkedin-in"></i>
           </a>
         </li>
         <li>
           <a href="https://github.com/Bhojraj27" className={classes.socialProfileLink}>
             <i className="lab la-github"></i>
+          </a>
+        </li>
+        <li>
+          <a
+            href="mailto:bhojrajchavan5@gmail.com"
+            className={classes.socialProfileLink}
+          >
+            <i className="las la-envelope"></i>
           </a>
         </li>
       </ul>

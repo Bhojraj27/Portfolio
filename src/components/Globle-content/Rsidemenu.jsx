@@ -283,26 +283,26 @@ export default function Rsidemenu() {
             <ul className={classes.sidebarSocialUl}>
               <li>
                 <a
-                  href="https://twitter.com"
+                  href="https://linkedin.com/in/bhojraj-chavan"
                   className={classes.sidebarSocialLink}
                 >
-                  <i className="lab la-twitter"></i>
+                  <i className="lab la-linkedin-in"></i>
                 </a>
               </li>
               <li>
                 <a
-                  href="https://dribbble.com"
+                  href="https://github.com/Bhojraj27"
                   className={classes.sidebarSocialLink}
                 >
-                  <i className="lab la-dribbble"></i>
+                  <i className="lab la-github"></i>
                 </a>
               </li>
               <li>
                 <a
-                  href="https://instagram.com"
+                  href="mailto:bhojrajchavan5@gmail.com"
                   className={classes.sidebarSocialLink}
                 >
-                  <i className="lab la-instagram"></i>
+                  <i className="las la-envelope"></i>
                 </a>
               </li>
             </ul>
