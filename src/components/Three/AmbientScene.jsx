@@ -4,6 +4,31 @@ import * as THREE from "three";
 
 const ambientParticleCount = 180;
 
+function useViewportProfile() {
+  const [profile, setProfile] = useState({
+    isCompact: false,
+    isLaptop: false,
+  });
+
+  useEffect(() => {
+    const updateProfile = () => {
+      const width = window.innerWidth;
+
+      setProfile({
+        isCompact: width < 900,
+        isLaptop: width >= 900 && width < 1500,
+      });
+    };
+
+    updateProfile();
+    window.addEventListener("resize", updateProfile);
+
+    return () => window.removeEventListener("resize", updateProfile);
+  }, []);
+
+  return profile;
+}
+
 function usePrefersReducedMotion() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
@@ -20,7 +45,7 @@ function usePrefersReducedMotion() {
   return prefersReducedMotion;
 }
 
-function BackgroundParticles({ reducedMotion, palette }) {
+function BackgroundParticles({ reducedMotion, palette, isCompact }) {
   const pointsRef = useRef();
   const positions = useMemo(() => {
     const vertices = [];
@@ -52,7 +77,12 @@ function BackgroundParticles({ reducedMotion, palette }) {
           itemSize={3}
         />
       </bufferGeometry>
-      <pointsMaterial color={palette.particle} size={0.025} transparent opacity={palette.particleOpacity} />
+      <pointsMaterial
+        color={palette.particle}
+        size={isCompact ? 0.018 : 0.025}
+        transparent
+        opacity={isCompact ? palette.particleOpacity * 0.55 : palette.particleOpacity}
+      />
     </points>
   );
 }
@@ -108,7 +138,7 @@ function OrbitingNodes({ reducedMotion, palette }) {
   );
 }
 
-function SignatureCluster({ reducedMotion, palette }) {
+function SignatureCluster({ reducedMotion, palette, isLaptop }) {
   const rootRef = useRef();
   const coreRef = useRef();
   const pointerTarget = usePointerTarget();
@@ -136,7 +166,11 @@ function SignatureCluster({ reducedMotion, palette }) {
 
   return (
     <>
-      <group ref={rootRef} position={[1.9, 0.25, -0.45]} scale={1.22}>
+      <group
+        ref={rootRef}
+        position={isLaptop ? [2.55, -0.06, -0.9] : [2.7, -0.08, -0.95]}
+        scale={isLaptop ? 0.78 : 0.88}
+      >
         <mesh ref={coreRef}>
           <icosahedronGeometry args={[0.92, 2]} />
           <meshStandardMaterial
@@ -156,21 +190,21 @@ function SignatureCluster({ reducedMotion, palette }) {
             emissive={palette.secondary}
             emissiveIntensity={0.15}
             transparent
-            opacity={0.08}
+            opacity={0.05}
             roughness={0.12}
             metalness={0.4}
           />
         </mesh>
 
         <mesh rotation={[Math.PI / 2.3, 0.25, 0]}>
-          <torusGeometry args={[1.42, 0.016, 18, 160]} />
-          <meshBasicMaterial color={palette.secondary} transparent opacity={palette.ringOpacity} />
+          <torusGeometry args={[1.26, 0.012, 18, 160]} />
+          <meshBasicMaterial color={palette.secondary} transparent opacity={palette.ringOpacity * 0.78} />
         </mesh>
 
         <OrbitingNodes reducedMotion={reducedMotion} palette={palette} />
       </group>
 
-      <group position={[-2.95, 0.7, -1.45]} rotation={[0.15, 0.25, 0.12]}>
+      <group position={[-1.15, -1.7, -2.25]} rotation={[0.15, 0.25, 0.12]}>
         <mesh>
           <icosahedronGeometry args={[0.78, 1]} />
           <meshStandardMaterial
@@ -179,7 +213,7 @@ function SignatureCluster({ reducedMotion, palette }) {
             emissiveIntensity={0.2}
             wireframe
             transparent
-            opacity={0.18}
+            opacity={0.1}
           />
         </mesh>
       </group>
@@ -187,7 +221,7 @@ function SignatureCluster({ reducedMotion, palette }) {
   );
 }
 
-function FloatingForms({ reducedMotion, palette }) {
+function FloatingForms({ reducedMotion, palette, isLaptop }) {
   const groupRef = useRef();
 
   useFrame((state, delta) => {
@@ -199,7 +233,7 @@ function FloatingForms({ reducedMotion, palette }) {
 
   return (
     <group ref={groupRef}>
-      <mesh position={[-3.6, 1.1, -1.6]} rotation={[0.5, 0.25, 0.3]}>
+      <mesh position={isLaptop ? [-0.45, -2.2, -2.5] : [-1.35, -2.05, -2.5]} rotation={[0.5, 0.25, 0.3]}>
         <icosahedronGeometry args={[0.72, 1]} />
         <meshStandardMaterial
           color={palette.core}
@@ -207,11 +241,11 @@ function FloatingForms({ reducedMotion, palette }) {
           emissiveIntensity={0.48}
           wireframe
           transparent
-          opacity={0.42}
+          opacity={0.18}
         />
       </mesh>
 
-      <mesh position={[3.8, -1.3, -1.8]} rotation={[0.2, 0.5, 0.1]}>
+      <mesh position={isLaptop ? [3.15, -1.45, -2.2] : [3.45, -1.4, -2.25]} rotation={[0.2, 0.5, 0.1]}>
         <octahedronGeometry args={[0.88, 1]} />
         <meshStandardMaterial
           color={palette.core}
@@ -219,11 +253,11 @@ function FloatingForms({ reducedMotion, palette }) {
           emissiveIntensity={0.42}
           wireframe
           transparent
-          opacity={0.36}
+          opacity={0.18}
         />
       </mesh>
 
-      <mesh position={[4.4, 2.1, -2.6]} rotation={[0.4, 0.2, 0.5]}>
+      <mesh position={isLaptop ? [3.1, 1.8, -2.8] : [3.45, 1.8, -2.8]} rotation={[0.4, 0.2, 0.5]}>
         <torusGeometry args={[0.62, 0.012, 16, 120]} />
         <meshBasicMaterial color={palette.primary} transparent opacity={palette.formOpacity} />
       </mesh>
@@ -233,6 +267,7 @@ function FloatingForms({ reducedMotion, palette }) {
 
 function AmbientScene({ mode }) {
   const reducedMotion = usePrefersReducedMotion();
+  const { isCompact, isLaptop } = useViewportProfile();
   const palette =
     mode === "light"
       ? {
@@ -243,8 +278,8 @@ function AmbientScene({ mode }) {
           particle: "#0ea5e9",
           particleOpacity: 0.22,
           core: "#e8f0f7",
-          ringOpacity: 0.36,
-          formOpacity: 0.26,
+          ringOpacity: 0.26,
+          formOpacity: 0.16,
         }
       : {
           fog: "#08111a",
@@ -254,8 +289,8 @@ function AmbientScene({ mode }) {
           particle: "#7dd3fc",
           particleOpacity: 0.38,
           core: "#06111b",
-          ringOpacity: 0.58,
-          formOpacity: 0.46,
+          ringOpacity: 0.34,
+          formOpacity: 0.24,
         };
 
   return (
@@ -269,9 +304,9 @@ function AmbientScene({ mode }) {
       <directionalLight position={[3, 4, 5]} intensity={0.8} color="#ffffff" />
       <pointLight position={[-4, 2, 2]} intensity={8} color={palette.primary} distance={8} />
       <pointLight position={[4, -2, 1]} intensity={6} color={palette.secondary} distance={8} />
-      <BackgroundParticles reducedMotion={reducedMotion} palette={palette} />
-      <SignatureCluster reducedMotion={reducedMotion} palette={palette} />
-      <FloatingForms reducedMotion={reducedMotion} palette={palette} />
+      <BackgroundParticles reducedMotion={reducedMotion} palette={palette} isCompact={isCompact} />
+      {!isCompact && <SignatureCluster reducedMotion={reducedMotion} palette={palette} isLaptop={isLaptop} />}
+      {!isCompact && <FloatingForms reducedMotion={reducedMotion} palette={palette} isLaptop={isLaptop} />}
     </Canvas>
   );
 }

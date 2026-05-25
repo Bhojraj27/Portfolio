@@ -6,8 +6,8 @@ import { useThemeMode } from "../../theme/ThemeContext";
 const useStyles = makeStyles((theme) => ({
   toggle: {
     position: "fixed",
-    left: 14,
-    top: 108,
+    left: 18,
+    top: "calc(50% + 30px)",
     zIndex: 120,
     width: 48,
     height: 48,
@@ -21,15 +21,16 @@ const useStyles = makeStyles((theme) => ({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
+    transform: "translateY(-50%)",
     transition: "all .25s ease",
     "&:hover": {
       color: "var(--primary_color)",
       borderColor: "var(--primary_color)",
-      transform: "translateX(3px)",
+      transform: "translate(3px, -50%)",
     },
     [theme.breakpoints.down("md")]: {
-      left: 10,
-      top: 114,
+      left: 12,
+      top: "calc(50% + 30px)",
     },
   },
   icon: {

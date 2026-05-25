@@ -14,6 +14,8 @@ const useStyles = makeStyles((theme) => ({
     "& .resume-timeline .item": {
       padding: "28px 28px 28px 74px",
       position: "relative",
+      isolation: "isolate",
+      overflow: "hidden",
       border: "1px solid var(--line)",
       borderRadius: 24,
       background: "linear-gradient(145deg, var(--surface), var(--surface-muted))",
@@ -21,19 +23,16 @@ const useStyles = makeStyles((theme) => ({
       transition: "all .3s ease",
       "&:last-child": {
         marginBottom: 0,
-        "&:after": {
-          height: "calc(100% - 10px)",
-        },
       },
       "&:after": {
         background: "var(--line-strong)",
+        bottom: 18,
         content: '""',
-        height: "100%",
         left: 30,
         position: "absolute",
-        top: 10,
+        top: 18,
         width: 1,
-        zIndex: -1,
+        zIndex: 0,
       },
       "&:before": {
         background: "var(--muted-strong)",
@@ -42,9 +41,14 @@ const useStyles = makeStyles((theme) => ({
         height: 12,
         left: 24,
         position: "absolute",
-        top: 7,
+        top: 24,
         transition: "0.3s",
         width: 12,
+        zIndex: 1,
+      },
+      "& > *": {
+        position: "relative",
+        zIndex: 2,
       },
       "& .date": {
         display: "block",
