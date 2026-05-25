@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   i: {
     fontSize: 18,
     marginBottom: 2,
-    color: "#fff",
+    color: "var(--text)",
   },
   input: {
     position: "absolute",
@@ -59,13 +59,13 @@ const useStyles = makeStyles((theme) => ({
     opacity: 0,
   },
   ulabel: {
-    color: "#fff",
+    color: "var(--text)",
     fontSize: "12px",
     textTransform: "uppercase",
     fontFamily: "Inter",
   },
   label: {
-    color: "#fff",
+    color: "var(--text)",
     fontSize: "12px",
     marginBottom: "2px",
     textTransform: "uppercase",
@@ -88,7 +88,6 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 400,
     justifyContent: "center",
     textTransform: "uppercase",
-    ".& border": "none",
     transition: ".3s",
     cursor: "pointer",
     border: `2px solid var(--primary_color)`,
@@ -125,32 +124,45 @@ const useStyles = makeStyles((theme) => ({
   },
   h3: {
     fontSize: "24px",
-    color: "#fff",
+    color: "var(--text)",
     fontWeight: 300,
     marginBottom: "50px",
   },
+  formShell: {
+    border: "1px solid var(--line)",
+    borderRadius: 28,
+    background: "linear-gradient(145deg, var(--surface), var(--surface-muted))",
+    padding: "30px 30px 10px",
+    boxShadow: "var(--panel_shadow)",
+    backdropFilter: "blur(18px)",
+    [theme.breakpoints.down("xs")]: {
+      padding: "24px 20px 6px",
+    },
+  },
   placeholder: {
-    color: "#666",
+    color: "var(--muted-strong)",
     "& .MuiOutlinedInput-input": {
       paddingLeft: 0,
       paddingTop: "10px",
     },
-    ".& border": "none",
     "& .MuiInputBase-root": {
-      color: "#999999",
+      color: "var(--text-soft)",
       fontSize: "18px",
       fontFamily: "Inter",
+      background: "var(--input-bg)",
+      borderRadius: 14,
     },
     "& .MuiInput-underline:before": {
-      borderBottomColor: "white",
+      borderBottomColor: "var(--line-strong)",
     },
     "& .MuiInput-underline:hover:not(.Mui-disabled):before": {
-      borderBottomColor: "white",
+      borderBottomColor: "var(--line-strong)",
     },
     "& .MuiInput-underline:after": {
-      borderBottomColor: "white",
+      borderBottomColor: "var(--primary_color)",
     },
     "& .MuiOutlinedInput-root": {
+      border: "1px solid var(--line)",
       "& fieldset": {
         border: "none",
       },
@@ -163,7 +175,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   span: {
-    color: "#999999",
+    color: "var(--muted)",
     textTransform: "none",
   },
   ilabel: {
@@ -171,7 +183,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   select: {
-    color: "#666",
+    color: "var(--text-soft)",
 
     "&:focus": {
       background: "transparent",
@@ -195,8 +207,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   h1: {
-    fontSize: 48,
-    color: "#fff",
+    fontSize: "clamp(2rem, 4vw, 3rem)",
+    color: "var(--text)",
     fontWeight: 300,
     marginBottom: 33,
     [theme.breakpoints.down("xs")]: {
@@ -208,8 +220,8 @@ const useStyles = makeStyles((theme) => ({
   },
   subtitle: {
     fontFamily: "Inter !important",
-    color: "#fff",
-    border: "1px solid #565656",
+    color: "var(--text)",
+    border: "1px solid var(--line-strong)",
     margin: "0 0 53px",
     display: "inline-flex",
     padding: "9px 20px",
@@ -227,8 +239,8 @@ const useStyles = makeStyles((theme) => ({
   sectionHeader: {
     marginBottom: "53px",
     "& h1": {
-      color: "#fff",
-      fontSize: 48,
+      color: "var(--text)",
+      fontSize: "clamp(2rem, 4vw, 3rem)",
       fontWeight: 300,
       fontFamily: "Inter",
       marginBottom: "33px",
@@ -272,7 +284,7 @@ export default function Contact() {
   const classes = useStyles();
   const selectFontStyle = {
     fontFamily: "Inter !important",
-    color: "#999",
+    color: "var(--text-soft)",
     fontSize: "18px",
   };
   return (
@@ -315,7 +327,7 @@ export default function Contact() {
               }}
             >
               {({ errors, touched }) => (
-                <Form data-aos="fade-up">
+                <Form className={classes.formShell} data-aos="fade-up">
                   <Grid container spacing={2}>
                     <Grid item xs={12} sm={6} lg={6}>
                       <Typography className={classes.ulabel}>

@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
         paddingBottom:'50px',
     },
     items:{
-        border: '1px solid #565656',
+        border: '1px solid var(--line-strong)',
         borderRadius: '20px',
         transition: '.3s',
         position: 'relative',
@@ -24,24 +24,24 @@ const useStyles = makeStyles((theme) => ({
                 fontSize: '24px',
                 fontWeight: 300,
                 marginBottom: '8px',
-                color: '#fff',
+                color: 'var(--text)',
                 [theme.breakpoints.down("md")]: {
                     fontSize: '20px',
                 },
             },
             '& h2 a': {
-                color: '#fff',
+                color: 'var(--text)',
                 transition: '.3s',
             },
             '&:hover': {
-                borderColor:'# 28e98c',
+                borderColor:'var(--primary_color)',
             },
             '&:hover h2 a': {
-                color:'# 28e98c',
+                color:'var(--primary_color)',
             },
             '& p': {
                 fontSize: '14px',
-                color: '#999999',
+                color: 'var(--muted)',
                 marginBottom: '30px',
                 [theme.breakpoints.down("md")]: {
                     fontSize:'14px'
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
             },
             '& .projects': {
                 fontSize: '12px',
-                color: '#fff',
+                color: 'var(--text)',
                 textTransform: 'uppercase',
                 display: 'inline-block',
             },
@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
             '& i': {
                 position: 'absolute',
                 fontSize: '30px',
-                color: '# 28e98c',
+                color: 'var(--primary_color)',
                 top: '45px',
                 right: '45px',
                 [theme.breakpoints.down("sm")]: {
@@ -74,8 +74,10 @@ const useStyles = makeStyles((theme) => ({
     
     },
     items1:{
-        border: '1px solid #565656',
+        border: '1px solid var(--line)',
         borderRadius: '20px',
+        background: 'linear-gradient(145deg, var(--surface), var(--surface-muted))',
+        backdropFilter: 'blur(18px)',
         transition: '.3s',
         position: 'relative',
         padding: '44px 48px 41px 48px',
@@ -90,17 +92,19 @@ const useStyles = makeStyles((theme) => ({
                 fontSize: '24px',
                 fontWeight: 300,
                 marginBottom: '8px',
-                color: '#fff',
+                color: 'var(--text)',
                 [theme.breakpoints.down("md")]: {
                     fontSize: '20px',
                 },
             },
             '& h2 a': {
-                color: '#fff',
+                color: 'var(--text)',
                 transition: '.3s',
             },
             '&:hover': {
                 borderColor:'var(--primary_color)',
+                transform: 'translateY(-5px)',
+                boxShadow: 'var(--panel_shadow)',
             },
             '&:hover h2 a': {
                 color: "var(--primary_color)",
@@ -108,7 +112,7 @@ const useStyles = makeStyles((theme) => ({
             },
             '& p': {
                 fontSize: '14px',
-                color: '#999999',
+                color: 'var(--muted)',
                 marginBottom: '30px',
                 [theme.breakpoints.down("md")]: {
                     fontSize:'14px'
@@ -116,7 +120,7 @@ const useStyles = makeStyles((theme) => ({
             },
             '& .projects': {
                 fontSize: '12px',
-                color: '#fff',
+                color: 'var(--text)',
                 textTransform: 'uppercase',
                 display: 'inline-block',
             },
@@ -142,8 +146,8 @@ const useStyles = makeStyles((theme) => ({
     },
 
     h1: {
-        color: "#fff",
-        fontSize: 48,
+        color: "var(--text)",
+        fontSize: "clamp(2rem, 4vw, 3rem)",
         fontWeight: 300,
         marginBottom: 33,
         fontFamily: "Inter",
@@ -176,8 +180,8 @@ const useStyles = makeStyles((theme) => ({
       },
     subTitle: {
         fontFamily:"Inter !important",
-        color:' #fff',
-        border: '1px solid #565656',
+        color:'var(--text)',
+        border: '1px solid var(--line-strong)',
         margin: '0 0 53px',
         display: 'inline-flex',
         padding: '9px 20px',

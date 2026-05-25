@@ -25,22 +25,47 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     zIndex: 3,
   },
+  heroShell: {
+    minHeight: "calc(100vh - 80px)",
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+    [theme.breakpoints.down("md")]: {
+      minHeight: "auto",
+    },
+  },
+  heroPanel: {
+    position: "relative",
+    zIndex: 3,
+    maxWidth: 610,
+    padding: "28px 0",
+  },
+  heroEyebrow: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 10,
+    color: "var(--text-soft)",
+    fontSize: 13,
+    marginBottom: 18,
+    fontFamily: "Inter",
+    "&:before": {
+      content: '""',
+      width: 34,
+      height: 1,
+      background: "var(--primary_color)",
+    },
+  },
 
   h1: {
-    fontSize: "78px",
+    fontSize: "clamp(2.6rem, 4.8vw, 4.45rem)",
     fontWeight: 300,
-    letterSpacing: "-.2px",
-    lineHeight: "90px",
-    marginBottom: "43px",
+    letterSpacing: 0,
+    lineHeight: 1.08,
+    marginBottom: "26px",
     fontFamily: "Inter",
-    color: "white",
+    color: "var(--text)",
     [theme.breakpoints.down("xs")]: {
-      fontSize: "50px",
-      lineHeight: "70px",
-    },
-
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "50px",
+      fontSize: "clamp(2rem, 10vw, 2.75rem)",
     },
   },
   span: {
@@ -48,49 +73,103 @@ const useStyles = makeStyles((theme) => ({
 
   },
   p: {
-    marginBottom: 31,
+    marginBottom: 24,
     maxWidth: 480,
     fontFamily: "Inter",
+    color: "var(--muted)",
+  },
+  actions: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: 14,
+    alignItems: "center",
+    marginBottom: 18,
+  },
+  primaryAction: {
+    background: "var(--primary_color)",
+    border: "1px solid var(--primary_color)",
+    borderRadius: 999,
+    color: "var(--button-text)",
+    fontFamily: "Inter",
+    fontSize: 13,
+    letterSpacing: 0,
+    padding: "12px 22px",
+    textTransform: "uppercase",
+    transition: "all .25s ease",
+    "&:hover": {
+      background: "transparent",
+      color: "var(--primary_color)",
+    },
+  },
+  secondaryAction: {
+    border: "1px solid var(--line-strong)",
+    borderRadius: 999,
+    color: "var(--text)",
+    fontFamily: "Inter",
+    fontSize: 13,
+    letterSpacing: 0,
+    padding: "12px 22px",
+    textTransform: "uppercase",
+    transition: "all .25s ease",
+    "&:hover": {
+      borderColor: "var(--primary_color)",
+      color: "var(--primary_color)",
+    },
   },
 
   goToPropsBtn: {
     alignItems: "center",
-    border: "1px solid #575757",
+    border: "1px solid var(--line-strong)",
     borderRadius: "50%",
     display: "flex",
-    height: 175,
+    bottom: 10,
+    height: 132,
     justifyContent: "center",
-    marginLeft: "auto",
-    marginRight: 15,
+    marginLeft: 0,
+    marginRight: 0,
     overflow: "hidden",
-    position: "relative",
-    width: 175,
+    position: "absolute",
+    right: 10,
+    width: 132,
+    transition: "all .3s ease",
+    "&:hover": {
+      borderColor: "var(--primary_color)",
+      transform: "translateY(-4px)",
+    },
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
   },
   rotatingImg: {
     animation: "$rotating 6s linear infinite",
     display: "block",
   },
   icon: {
-    color: "#fff",
+    color: "var(--text)",
     display: "block",
     fontSize: 40,
     position: "absolute",
   },
   facts: {
-    gap: 100,
-    marginTop: 55,
+    gap: 72,
+    marginTop: 26,
     display: "flex",
-    marginBottom: "90px",
+    marginBottom: 0,
     [theme.breakpoints.down("sm")]: {
       gap: 60,
+    },
+    [theme.breakpoints.down("xs")]: {
+      gap: 28,
+      flexWrap: "wrap",
+      marginBottom: "35px",
     },
   },
   factsH1: {
     color: "var(--primary_color)",
-    fontSize: 72,
+    fontSize: 58,
     lineHeight: "56px",
     fontWeight: 300,
-    marginBottom: 38,
+    marginBottom: 22,
     fontFamily: "Inter",
     gap: 100,
     [theme.breakpoints.down("sm")]: {
@@ -107,15 +186,16 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 14,
     lineHeight: "24px",
     textTransform: "uppercase",
+    color: "var(--muted)",
   },
   subTitle: {
     alignItems: "center",
-    border: "1px solid #565656",
-    color: "#fff",
+    border: "1px solid var(--line-strong)",
+    color: "var(--text)",
     display: "inline-flex",
     fontSize: "12px",
     fontWeight: 300,
-    margin: "0 0 53px",
+    margin: "0 0 24px",
     padding: "9px 20px",
     textTransform: "uppercase",
     borderRadius: "30px",
@@ -174,54 +254,70 @@ export default function Herosec() {
     <Container>
       <section className="hero-section">
         <Container className={classes.customContainer}>
-        <div className={`${classes.heroContent}${classes.heroContent1} page-section`}>
-          <div className={`${classes.ContentWidth}`}>
-              <div>
+          <div className={`${classes.heroShell} page-section`}>
+            <div className={`${classes.heroContent} ${classes.ContentWidth}`}>
+              <div className={classes.heroPanel}>
                 <Typography className={classes.subTitle} data-aos="fade-up">
                   <i className={`${classes.subTitleIcon} las la-home`}></i>{" "}
                   Introduce
+                </Typography>
+
+                <Typography className={classes.heroEyebrow} data-aos="fade-up">
+                  React, Node.js, AI, SaaS systems
                 </Typography>
 
                 <Typography className={classes.h1} data-aos="fade-up">
                   Say Hi from <span className={classes.span}>Bhojraj</span>,
                   Senior Full Stack Developer
                 </Typography>
-              </div>
-              <Typography
-                variant="p"
-                component="p"
-                className={classes.p}
-                data-aos="fade-up"
-              >
-                I architect high-performance SaaS applications with scalable React
-                frontends, robust Node.js backends, and practical AI integrations.
-              </Typography>
-              <Button
-                href="#portfolio"
-                className={classes.goToPropsBtn}
-                data-aos="fade-up"
-              >
-                <img
-                  src="images/round-text.png"
-                  alt="Rounded Text"
-                  className={classes.rotatingImg}
-                />
-                <ArrowDownwardIcon className={classes.icon} />
-              </Button>
-              <div className={classes.facts}>
-                <div className="left" data-aos="fade-right">
-                  <h1 className={classes.factsH1}>2+</h1>
-                  <p className={classes.factsP}>
-                    Years Of <br></br>
-                    Experience
-                  </p>
+
+                <Typography
+                  variant="p"
+                  component="p"
+                  className={classes.p}
+                  data-aos="fade-up"
+                >
+                  I architect high-performance SaaS applications with scalable React
+                  frontends, robust Node.js backends, and practical AI integrations.
+                </Typography>
+
+                <div className={classes.actions} data-aos="fade-up">
+                  <Button href="#portfolio" className={classes.primaryAction}>
+                    View Projects
+                  </Button>
+                  <Button href="/pdf/bhojraj-chavan-resume.pdf" className={classes.secondaryAction}>
+                    Download Resume
+                  </Button>
                 </div>
-                <div className="right " data-aos="fade-left">
-                  <h1 className={classes.factsH1}>500+</h1>
-                  <p className={classes.factsP}>
-                    Users Served On <br />
-                    SaaS Platforms
-                  </p>
+
+                <Button
+                  href="#portfolio"
+                  className={classes.goToPropsBtn}
+                  data-aos="fade-up"
+                >
+                  <img
+                    src="images/round-text.png"
+                    alt="Rounded Text"
+                    className={classes.rotatingImg}
+                  />
+                  <ArrowDownwardIcon className={classes.icon} />
+                </Button>
+
+                <div className={classes.facts}>
+                  <div className="left" data-aos="fade-right">
+                    <h1 className={classes.factsH1}>2+</h1>
+                    <p className={classes.factsP}>
+                      Years Of <br></br>
+                      Experience
+                    </p>
+                  </div>
+                  <div className="right " data-aos="fade-left">
+                    <h1 className={classes.factsH1}>500+</h1>
+                    <p className={classes.factsP}>
+                      Users Served On <br />
+                      SaaS Platforms
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

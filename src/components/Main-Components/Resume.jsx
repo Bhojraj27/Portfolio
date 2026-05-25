@@ -11,31 +11,35 @@ const useStyles = makeStyles((theme) => ({
   },
   resumeContent: {
     "& .resume-timeline .item": {
-      paddingBottom: 68,
-      paddingLeft: "74px",
+      padding: "28px 28px 28px 74px",
       position: "relative",
+      border: "1px solid var(--line)",
+      borderRadius: 24,
+      background: "linear-gradient(145deg, var(--surface), var(--surface-muted))",
+      marginBottom: 18,
+      transition: "all .3s ease",
       "&:last-child": {
-        paddingBottom: 0,
+        marginBottom: 0,
         "&:after": {
           height: "calc(100% - 10px)",
         },
       },
       "&:after": {
-        background: "#333",
+        background: "var(--line-strong)",
         content: '""',
         height: "100%",
-        left: 0,
+        left: 30,
         position: "absolute",
         top: 10,
         width: 1,
         zIndex: -1,
       },
       "&:before": {
-        background: "#656565",
+        background: "var(--muted-strong)",
         borderRadius: "50%",
         content: '""',
         height: 12,
-        left: -6,
+        left: 24,
         position: "absolute",
         top: 7,
         transition: "0.3s",
@@ -47,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
         transition: "0.3s",
       },
       "& h2": {
-        color: "#fff",
+        color: "var(--text)",
         fontSize: "24px",
         fontWeight: 300,
         marginBottom: 5,
@@ -57,11 +61,11 @@ const useStyles = makeStyles((theme) => ({
   
       },
       "& h2 a": {
-        color: "#fff",
+        color: "var(--text)",
         display: "block",
       },
       "& p": {
-        color: "#999",
+        color: "var(--muted)",
         fontSize: 13,
         marginBottom: 18,
         "&:last-child": {
@@ -69,11 +73,14 @@ const useStyles = makeStyles((theme) => ({
         },
       },
       "&:hover": {
+        transform: "translateY(-4px)",
+        borderColor: "rgba(40,233,140,0.34)",
+        boxShadow: "var(--panel_shadow)",
         "&:before": {
-          background: "# 28e98c",
+          background: "var(--primary_color)",
         },
         "& .date": {
-          color: "# 28e98c",
+          color: "var(--primary_color)",
         },
       },
     },
@@ -106,8 +113,8 @@ const useStyles = makeStyles((theme) => ({
     },
    
   h1: {
-    color: "#fff",
-    fontSize: 48,
+    color: "var(--text)",
+    fontSize: "clamp(2rem, 4vw, 3rem)",
     fontWeight: 300,
     marginBottom: 33,
     fontFamily: "Inter",
@@ -118,8 +125,8 @@ const useStyles = makeStyles((theme) => ({
   },
   subTitle: {
     fontFamily:"Inter !important",
-    color: "#fff",
-    border: "1px solid #565656",
+    color: "var(--text)",
+    border: "1px solid var(--line-strong)",
     margin: "0 0 53px",
     display: "inline-flex",
     padding: "9px 20px",
@@ -175,15 +182,17 @@ export default function Resume() {
               <span className={`${classes.span} date`}>April 2024 - Present</span>
               <h2>Sr. Software Developer</h2>
               <p>Walstar Technologies</p>
-              <h2>Bynaus SaaS Platform</h2>
+              <h2>Bynaus AI</h2>
               <p>Lead full-stack development for 500+ users, integrated OpenAI, Google Gemini, LiteLLM, and Ragie, and built GPS workforce, cron, and PDF vector workflows.</p>
+              <h2>YAU TeamUp</h2>
+              <p>Worked on the multi-portal sports management platform with modern React-based interfaces and product workflows.</p>
             </div>
             <div className={`item scroll-animation`} data-aos="fade-left">
               <span className={`${classes.span} date`}>March 2023 - October 2023</span>
               <h2>Software Developer Trainee</h2>
               <p>Mobiloitte Technologies</p>
-              <h2>React.js Development</h2>
-              <p>Built React interfaces, integrated RESTful APIs, contributed to sprint planning, and introduced shared UI component libraries.</p>
+              <h2>Jeff Music Therapy Admin Panel</h2>
+              <p>Built React interfaces, integrated RESTful APIs, contributed to sprint planning, and helped create shared UI component libraries.</p>
             </div>
             <div className={`item scroll-animation`} data-aos="fade-right">
               <span className={`${classes.span} date`}>2020 - 2023</span>

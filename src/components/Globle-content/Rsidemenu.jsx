@@ -24,13 +24,14 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "50%",
     display: "flex",
     flexDirection: "column",
-    border: "1px solid #575757",
+    border: "1px solid var(--line-strong)",
     alignItems: "center",
     justifyContent: "center",
     gap: "4px",
     cursor: "pointer",
     transition: ".3s",
-    background: "#1f1f1f",
+    background: "var(--floating-surface)",
+    backdropFilter: "blur(16px)",
     zIndex: 99,
     [theme.breakpoints.down("xs")]: {
       position:"fixed !important",
@@ -51,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
     width: "20px",
     display: "block",
     height: "2px",
-    background: "#fff",
+    background: "var(--text)",
     transition: ".3s",
   },
 
@@ -63,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
 
     height: "100%",
     zIndex: -1,
-    background: "#565656",
+    background: "rgba(15, 23, 42, 0.45)",
     opacity: 0.5,
   },
   overRelay: {
@@ -73,13 +74,13 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: "100%",
     zIndex: -1,
-    background: "#565656",
+    background: "rgba(15, 23, 42, 0.45)",
     opacity: 0.5,
   },
   p: {
     fontSize: "18px",
     fontFamily: "Inter",
-    color: "#999",
+    color: "var(--muted)",
     width: "46%",
     marginTop: "15%",
     paddingLeft: "24%",
@@ -87,7 +88,8 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
-    background: "black",
+    background: "var(--bg-soft)",
+    backdropFilter: "blur(18px)",
 
     [theme.breakpoints.down("sm")]: {
       menuButton: {
@@ -102,14 +104,14 @@ const useStyles = makeStyles((theme) => ({
     marginTop:"7px",
     transition: ".3s",
     "&:hover": {
-      color: "# 28e98c",
+      color: "var(--primary_color)",
       backgroundColor: "transparent",
     },
     "&:hover $listItemIcon": {
-      color: "# 28e98c",
+      color: "var(--primary_color)",
     },
     "&:hover $listItemText": {
-      color: "white",
+      color: "var(--text)",
       
     },
   },
@@ -117,7 +119,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "354px",
   },
   listItemIcon: {
-    color: "#999999",
+    color: "var(--muted)",
     fontSize: "16px",
     minWidth: '30px',
   },
@@ -126,7 +128,7 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     opacity: 1,
     visibility: "visible",
-    color: "#999999",
+    color: "var(--muted)",
     background: "none",
     margin: 0,
     padding: 0,
@@ -138,7 +140,7 @@ const useStyles = makeStyles((theme) => ({
     },
     '& .MuiTypography-body1':{
       fontFamily: "Inter !important",
-      fontSize: "12px !important",color: "#999999",
+      fontSize: "12px !important",color: "var(--muted)",
     },
   },
   sidebarSocial: {
@@ -151,7 +153,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex", // Center-align the social links
   },
   sidebarSocialLink: {
-    color: "#999999",
+    color: "var(--muted)",
     transition: ".3s",
     fontSize: "16px",
     "&:hover": {
@@ -168,12 +170,12 @@ const useStyles = makeStyles((theme) => ({
   },
   socialText: {
     marginTop:"23px",
-    color: "#999",
+    color: "var(--muted)",
     fontSize: "16px",
     fontFamily:"Inter !important"
   },
   closeSettings:{
-    color:" #fff",
+    color:"var(--text)",
       fontSize: '20px',
       position: "absolute",
       right: "20px",

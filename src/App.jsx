@@ -1,3 +1,4 @@
+import React, { Suspense, lazy } from "react";
 import Main from './components/Main'
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -14,16 +15,28 @@ import Lsb from './components/Globle-content/Lsb';
 import Scrollnav from './components/Globle-content/Scrollnav';
 import Rsidemenu from './components/Globle-content/Rsidemenu';
 import Settings from './components/Globle-content/Settings';
+import ThemeToggle from './components/Globle-content/ThemeToggle';
+import { useThemeMode } from './theme/ThemeContext';
+
+const AmbientScene = lazy(() => import("./components/Three/AmbientScene"));
 
 export default function App() {
+  const { mode } = useThemeMode();
+
   return (
     <>
       <BrowserRouter>
         <div className="App">
+          <div className="ambient-scene" aria-hidden="true">
+            <Suspense fallback={null}>
+              <AmbientScene mode={mode} />
+            </Suspense>
+          </div>
           <Lsb />
           <Rsidemenu />
           <Scrollnav />
           <Settings />
+          <ThemeToggle />
           <Routes>
             <Route path="/" element={<Main route={window.location.pathname} />} />
             <Route path="/About" element={<About />} />

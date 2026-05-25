@@ -5,7 +5,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Container, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-  
   ContentWidth: {
     maxWidth: "770px",
     width: "100%",
@@ -19,31 +18,43 @@ const useStyles = makeStyles((theme) => ({
       top: 0,
       transform: "translateY(0)",
     },
-  '@media (max-width: 768px)':{
-    maxWidth:"748px",
-    left:"10px",
-    right:"10px",},
-     [theme.breakpoints.down("xs")]: {
-width:"100%"
+    "@media (max-width: 768px)": {
+      maxWidth: "748px",
+      left: "10px",
+      right: "10px",
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+    },
+    "@media (min-width: 1440px)": {
+      marginLeft: "234px",
+      maxWidth: "880px",
+    },
   },
-       '@media (min-width: 1440px)': {
-        marginLeft:"234px",
-        maxWidth:"880px",
-      },
+  aboutCard: {
+    border: "1px solid var(--line)",
+    borderRadius: 28,
+    background: "linear-gradient(145deg, var(--surface), var(--surface-muted))",
+    boxShadow: "var(--panel_shadow)",
+    padding: "38px 40px",
+    backdropFilter: "blur(18px)",
+    [theme.breakpoints.down("xs")]: {
+      padding: "28px 24px",
+    },
   },
   h1: {
-    color: "#fff",
-    fontSize: 48,
+    color: "var(--text)",
+    fontSize: "clamp(2rem, 4vw, 3rem)",
     fontWeight: 300,
     marginBottom: 33,
     fontFamily: "Inter",
     [theme.breakpoints.down("xs")]: {
-      fontSize: "38px !important",
+      fontSize: "32px !important",
     },
   },
   subTitle: {
-    color: " #fff",
-    border: "1px solid #565656",
+    color: "var(--text)",
+    border: "1px solid var(--line-strong)",
     margin: "0 0 53px",
     display: "inline-flex",
     padding: "9px 20px",
@@ -77,7 +88,8 @@ width:"100%"
   },
   p: {
     lineHeight: "30px",
-    fontFamily:"Inter !important"
+    color: "var(--muted)",
+    fontFamily: "Inter !important",
   },
 }));
 
@@ -92,7 +104,7 @@ export default function About() {
  <Container>
      <section className={classes.aboutArea} id="about">
       <div className={classes.customContainer}>
-        <div className={`${classes.aboutContent} ${classes.ContentWidth}`}>
+        <div className={`${classes.aboutContent} ${classes.ContentWidth} ${classes.aboutCard}`}>
           <div>
             <Typography
               variant="h4"

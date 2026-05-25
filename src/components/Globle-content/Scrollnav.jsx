@@ -5,9 +5,11 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   menu: {
-    background: "#1f1f1f",
-    border: "1px solid #575757",
+    background: "var(--floating-surface)",
+    border: "1px solid var(--line)",
     borderRadius: "30px",
+    backdropFilter: "blur(18px)",
+    boxShadow: "0 18px 40px rgba(0,0,0,0.2)",
     flexDirection: "column",
     gap: "20px",
     fontSize:"20px !important",
@@ -26,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     
   },
   menuItem: {
-    color: "#999",
+    color: "var(--muted)",
     cursor: "pointer",
     display: "block",
     position: "relative",
@@ -36,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
     width: "55px",
     "&.active, &:hover": {
       color: "var(--primary_color)",
+      transform: "translateY(-2px)",
     },
     "&:hover span": {
       opacity: 1,
@@ -46,9 +49,9 @@ const useStyles = makeStyles((theme) => ({
        fontSize: "40px !important",
   },
   menuItemText: {
-    background: "#404042",
+    background: "var(--surface-strong)",
     borderRadius: "5px",
-    color: "#fff",
+    color: "var(--text)",
     display: "block",
     fontSize: "12px",
     opacity: 0,
@@ -58,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
     transition: ".3s",
     visibility: "hidden",
     "&:before": {
-      background: "#404042",
+      background: "var(--surface-strong)",
       content: '""',
       height: "10px",
       marginTop: "-5px",

@@ -4,7 +4,67 @@ import "aos/dist/aos.css";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
-import { Box, Grid } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
+
+const skillGroups = [
+  {
+    title: "Frontend",
+    icon: "las la-laptop-code",
+    accent: "#28e98c",
+    description: "Interfaces, data flows, routing, forms, motion, and dashboards.",
+    skills: [
+      "React.js",
+      "Vite",
+      "TypeScript",
+      "Redux",
+      "TanStack Query",
+      "Tailwind CSS",
+      "MUI X",
+      "Framer Motion",
+      "React Router v7",
+      "Formik",
+      "Recharts",
+      "D3",
+    ],
+  },
+  {
+    title: "Backend",
+    icon: "las la-server",
+    accent: "#38bdf8",
+    description: "APIs and realtime systems for product-grade applications.",
+    skills: ["Node.js", "Express.js", "RESTful APIs", "WebSocket", "SSE", "JWT"],
+  },
+  {
+    title: "AI & Integrations",
+    icon: "las la-brain",
+    accent: "#a78bfa",
+    description: "AI workflows plus the external services that ship real product features.",
+    skills: [
+      "OpenAI",
+      "Google Gemini",
+      "LiteLLM",
+      "Ragie",
+      "Stripe",
+      "Auth0",
+      "Mailgun",
+      "Firebase Admin",
+    ],
+  },
+  {
+    title: "Cloud & Databases",
+    icon: "las la-cloud",
+    accent: "#fbbf24",
+    description: "Storage, queues, caching, and persistence for scalable systems.",
+    skills: ["MongoDB", "Redis", "Firebase Firestore", "AWS S3", "AWS SQS"],
+  },
+  {
+    title: "Tools",
+    icon: "las la-tools",
+    accent: "#fb7185",
+    description: "Daily engineering workflow, delivery, monitoring, and collaboration.",
+    skills: ["Git", "GitHub", "Sentry", "Postman", "Jira"],
+  },
+];
 
 const useStyles = makeStyles((theme) => ({
   skillsArea: {
@@ -15,19 +75,18 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 1130,
     padding: "0 15px",
     margin: "auto",
-
   },
   subtitle: {
-    color: " #fff",
+    color: "var(--text)",
     fontFamily: "Inter !important",
-    border: "1px solid #565656",
+    border: "1px solid var(--line-strong)",
     margin: "0 0 53px",
     display: "inline-flex",
     padding: "9px 20px",
     fontSize: "12px",
     alignItems: "center",
     fontWeight: 300,
-    borderRadius: " 30px",
+    borderRadius: "30px",
     textTransform: "uppercase",
   },
   subtitleIcon: {
@@ -48,63 +107,116 @@ const useStyles = makeStyles((theme) => ({
       top: 0,
       transform: "translateY(0)",
     },
-    '@media (min-width: 1440px)': {
+    "@media (min-width: 1440px)": {
       marginLeft: "234px",
       maxWidth: "880px",
     },
-    '@media (min-width: 2560px)': {
+    "@media (min-width: 2560px)": {
       maxWidth: "2000px",
       alignItems: "center",
     },
   },
-  skill: {
-    marginBottom: 50,
-  },
-  skillInner: {
-    border: "2px solid #565656",
-    borderRadius: 85,
-    padding: "54px 0 48px 0",
-    marginBottom: 20,
-    transition: ".3s",
-    "&:hover": {
-      borderColor: "var(--primary_color)",
-    },
-  },
-  skillImage: {
-    display: "block",
-    width:70,
-    margin: "auto auto 29px auto",
-  },
-  skillPercent: {
-    fontSize: 30,
-    color: "var(--primary_color)",
-    fontWeight: 300,
-    margin: 0,
-    textAlign: "center",
-  },
-  skillName: {
-    fontSize: 14,
-    color: "#fff",
-    margin: 0,
-    textAlign: "center",
-  },
   h1: {
-
-    color: '#fff',
-    fontSize: 48,
+    color: "var(--text)",
+    fontSize: "clamp(2rem, 4vw, 3rem)",
     fontWeight: 300,
-    marginBottom: 33,
-    fontFamily: 'Inter',
+    marginBottom: 18,
+    fontFamily: "Inter",
     display: "flex",
+    flexWrap: "wrap",
     [theme.breakpoints.down("xs")]: {
       fontSize: "38px !important",
     },
-
     "& span": {
       color: "var(--primary_color)",
       marginLeft: "10px",
     },
-
+  },
+  intro: {
+    maxWidth: 620,
+    color: "var(--muted)",
+    fontSize: 15,
+    lineHeight: "28px",
+    fontFamily: "Inter",
+    marginBottom: 34,
+  },
+  groupCard: {
+    height: "100%",
+    border: "1px solid var(--line)",
+    borderRadius: 20,
+    background: "linear-gradient(145deg, var(--surface), var(--surface-muted))",
+    padding: "26px 24px 24px",
+    position: "relative",
+    overflow: "hidden",
+    backdropFilter: "blur(18px)",
+    transition: "all .3s ease",
+    "&:before": {
+      content: '""',
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "3px",
+      background: "var(--accent)",
+    },
+    "&:hover": {
+      transform: "translateY(-5px)",
+      borderColor: "var(--accent)",
+      boxShadow: "var(--panel_shadow)",
+    },
+  },
+  groupHeader: {
+    display: "flex",
+    alignItems: "flex-start",
+    gap: 14,
+    marginBottom: 18,
+  },
+  groupIcon: {
+    width: 42,
+    height: 42,
+    borderRadius: 12,
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color: "var(--accent)",
+    background: "var(--surface-chip)",
+    border: "1px solid var(--line)",
+    flexShrink: 0,
+    fontSize: 23,
+  },
+  groupTitle: {
+    color: "var(--text)",
+    fontFamily: "Inter",
+    fontSize: 21,
+    fontWeight: 400,
+    marginBottom: 4,
+  },
+  groupDescription: {
+    color: "var(--muted)",
+    fontFamily: "Inter",
+    fontSize: 13,
+    lineHeight: "22px",
+  },
+  skillTags: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: 10,
+  },
+  skillTag: {
+    color: "var(--text)",
+    fontFamily: "Inter",
+    fontSize: 13,
+    lineHeight: 1,
+    borderRadius: 999,
+    padding: "10px 13px",
+    border: "1px solid var(--line)",
+    background: "var(--surface-chip)",
+    transition: "all .25s ease",
+    "&:hover": {
+      color: "var(--accent)",
+      borderColor: "var(--accent)",
+      background: "var(--surface-strong)",
+    },
   },
 }));
 
@@ -122,108 +234,48 @@ export default function Skills() {
           <div className={classes.skillsContent}>
             <div>
               <Typography className={classes.subtitle} data-aos="fade-up">
-                <i className={classes.subtitleIcon + " las la-shapes"}></i> my
-                skills
+                <i className={`${classes.subtitleIcon} las la-shapes`}></i>
+                my skills
               </Typography>
-              <div >
-                <Typography className={`scroll-animation ${classes.h1}`} data-aos="fade-up">
-                  My <span className={classes.span}>Advantages</span>
-                </Typography>
-              </div>
+              <Typography className={`scroll-animation ${classes.h1}`} data-aos="fade-up">
+                My <span>Technology Stack</span>
+              </Typography>
+              <Typography className={classes.intro} data-aos="fade-up">
+                A full-stack toolkit built around modern React products, reliable backend
+                systems, AI integrations, and cloud services.
+              </Typography>
             </div>
+
             <Grid container spacing={3}>
-              <Grid item xs={4} md={6} lg={3} xl={3} data-aos="fade-right" >
-                <div className={classes.skill}>
-                  <Box className={classes.skillInner}>
-                    <img
-                      src="images/html.png"
-                      alt="Figma"
-                      className={classes.skillImage}
-                    />
-                    <Typography variant="h1" className={classes.skillPercent}>
-                      90%
-                    </Typography>
-                  </Box>
-                  <Typography className={classes.skillName}>React.js</Typography>
-                </div>
-              </Grid>
-              <Grid item xs={4} md={6} lg={3} xl={3} data-aos="fade-up">
-                <div className={classes.skill}>
-                  <Box className={classes.skillInner}>
-                    <img
-                      src="images/Css.png"
-                      alt="Figma"
-                      className={classes.skillImage}
-                    />
-                    <Typography variant="h1" className={classes.skillPercent}>
-                      85%
-                    </Typography>
-                  </Box>
-                  <Typography className={classes.skillName}>TypeScript</Typography>
-                </div>
-              </Grid>
-              <Grid item xs={4} md={6} lg={3} xl={3} data-aos="fade-down">
-                <div className={classes.skill}>
-                  <Box className={classes.skillInner}>
-                    <img
-                      src="images/Javasscript.png"
-                      alt="Figma"
-                      className={classes.skillImage}
-                    />
-                    <Typography variant="h1" className={classes.skillPercent}>
-                      88%
-                    </Typography>
-                  </Box>
-                  <Typography className={classes.skillName}>Node.js</Typography>
-                </div>
-              </Grid>
-              <Grid item xs={4} md={6} lg={3} xl={3} data-aos="fade-left">
-                <div className={classes.skill}>
-                  <Box className={classes.skillInner}>
-                    <img
-                      src="images/react.png"
-                      alt="Figma"
-                      className={classes.skillImage}
-                    />
-                    <Typography variant="h1" className={classes.skillPercent}>
-                      86%
-                    </Typography>
-                  </Box>
-                  <Typography className={classes.skillName}>Express.js</Typography>
-                </div>
-              </Grid>
-              <Grid item xs={4} md={6} lg={3} xl={3} data-aos="fade-right" >
-                <div className={classes.skill}>
-                  <Box className={classes.skillInner}>
-                    <img
-                      src="images/Bootstrap.png"
-                      alt="Figma"
-                      className={classes.skillImage}
-                    />
-                    <Typography variant="h1" className={classes.skillPercent}>
-                      82%
-                    </Typography>
-                  </Box>
-                  <Typography className={classes.skillName}>OpenAI / Gemini</Typography>
-                </div>
-              </Grid>
-              <Grid item xs={4} md={6} lg={3} xl={3} data-aos="fade-up">
-                <div className={classes.skill}>
-                  <Box className={classes.skillInner}>
-                    <img
-                      src="images/nodejs.png"
-                      alt="Figma"
-                      className={classes.skillImage}
-                    />
-                    <Typography variant="h1" className={classes.skillPercent}>
-                      80%
-                    </Typography>
-                  </Box>
-                  <Typography className={classes.skillName}>
-                    AWS / MongoDB
-                  </Typography>
-                </div>
-              </Grid>
+              {skillGroups.map((group, index) => (
+                <Grid
+                  item
+                  xs={12}
+                  md={6}
+                  key={group.title}
+                  data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+                >
+                  <div className={classes.groupCard} style={{ "--accent": group.accent }}>
+                    <div className={classes.groupHeader}>
+                      <i className={`${group.icon} ${classes.groupIcon}`}></i>
+                      <div>
+                        <Typography className={classes.groupTitle}>{group.title}</Typography>
+                        <Typography className={classes.groupDescription}>
+                          {group.description}
+                        </Typography>
+                      </div>
+                    </div>
+
+                    <div className={classes.skillTags}>
+                      {group.skills.map((skill) => (
+                        <span key={skill} className={classes.skillTag}>
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </Grid>
+              ))}
             </Grid>
           </div>
         </Container>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { IconButton, Typography, Drawer, Grid } from "@material-ui/core";
+import { IconButton, Typography, Drawer } from "@material-ui/core";
 import {
   Settings as SettingsIcon,
   Close as CloseIcon,
@@ -31,8 +31,9 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
-    color: "white",
-    backgroundColor: "black",
+    color: "var(--text)",
+    backgroundColor: "var(--bg-soft)",
+    backdropFilter: "blur(18px)",
     [theme.breakpoints.down("xs")]: {
       width: "100%",
     },
@@ -47,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
 
   globalColorOptionHeading: {
     fontFamily: "Inter",
-    color: "#fff",
+    color: "var(--text)",
     fontSize: "34px",
     fontWeight: 200,
     lineHeight: 1.2,
@@ -76,31 +77,44 @@ const useStyles = makeStyles((theme) => ({
     right:"20px"
   },
   iconbutton: {
-    width: 40,
-    height: 40,
+    width: 48,
+    height: 48,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     fontSize: 20,
     cursor: "pointer",
-    background: "#1f1f1f",
-    color: "#999",
+    background: "var(--floating-surface-hover)",
+    backdropFilter: "blur(16px)",
+    border: "1px solid var(--line-strong)",
+    boxShadow: "0 14px 34px rgba(0, 0, 0, 0.18)",
+    color: "var(--text)",
     position: "fixed",
-    left: 0,
-    top: 50,
-    zIndex: 100,
+    left: 14,
+    top: 52,
+    zIndex: 120,
+    transition: "all .25s ease",
+    "&:hover": {
+      color: "var(--primary_color)",
+      borderColor: "var(--primary_color)",
+      transform: "translateX(3px)",
+    },
+    "& svg, & i": {
+      color: "currentColor",
+      fontSize: 22,
+    },
     [theme.breakpoints.down("xs")]: {
-      left: 0,
-      top: 60,
+      left: 10,
+      top: 58,
     },
     [theme.breakpoints.down("md")]: {
-      left: 0,
-      top: 60,
+      left: 10,
+      top: 58,
     },
     
   },
 closeSettings:{
-  color:" #fff",
+  color:"var(--text)",
     fontSize: '20px',
     position: "absolute",
     right: "20px",
@@ -140,8 +154,9 @@ const Settings = (props) => {
       <IconButton
         className={classes.iconbutton}
         onClick={() => setIsSettingsOpen(true)}
+        aria-label="Open color settings"
       >
-     <i className={`las la-cog ${classes.subTitleIcon}`}></i>
+        <SettingsIcon />
       </IconButton>
       <Drawer
         className={classes.drawer}
@@ -152,14 +167,7 @@ const Settings = (props) => {
         }}
         onClose={() => setIsSettingsOpen(false)}
       >
-        <div className={classes.toolbar}>
-          <IconButton
-            className={`${classes.settingToggle} ${classes.iconbutton}`}
-            onClick={() => setIsSettingsOpen(true)}
-          >
-            <SettingsIcon />
-          </IconButton>
-        </div>
+        <div className={classes.toolbar} />
         <div className={classes.toolbar}>
           <IconButton
             className={`${classes.closeSettings}`}
@@ -185,40 +193,6 @@ const Settings = (props) => {
               />
             ))}
           </div>
-          <Typography variant="h6" className={classes.globalColorOptionHeading}>
-            Three Dimensional Shapes
-          </Typography>
-         
-            
-          <Grid container spacing={4} classNme={classes.themeGrid}>
-            <Grid item xs={3} sm={3} md={3} lg={3}>
-            <a href="#" onClick={() => { 
-  document.querySelector('body').style.backgroundColor = 'black'; 
-  if (props.clickEvent) {
-    props.clickEvent('videos/video2.mp4');
-  }
-  setIsSettingsOpen(false);
-}}> Earth Lines Sphere</a>
- </Grid>
-            <Grid item xs={3} sm={3} md={3} lg={3}>
-            <a href="#" onClick={() => {document.querySelector('body').style.backgroundColor='black';props.clickEvent('videos/video2.mp4');setIsSettingsOpen(false);}}> 3D Abstract Ball</a>
-            </Grid>
-            <Grid item xs={3} sm={3} md={3} lg={3}>
-            <a href="#" onClick={() => {document.querySelector('body').style.backgroundColor='#1f1f1f';props.clickEvent('videos/video3.mp4');setIsSettingsOpen(false);}}>
-              Water Waves</a>
-            </Grid>
-            <Grid item xs={3} sm={3} md={3} lg={3}>
-            <a href="#" onClick={() => {document.querySelector('body').style.backgroundColor='#1f1f1f';props.clickEvent('videos/video4.mp4');setIsSettingsOpen(false);}}>
-              Liquids Wavy</a>
-            </Grid>
-            <Grid item xs={3} sm={3} md={3} lg={3}>
-            <a href="#" onClick={() => {document.querySelector('body').style.backgroundColor='#1f1f1f';props.clickEvent('videos/video5.mp4');setIsSettingsOpen(false);}}>
-              Simple Strings</a>
-            </Grid>
-            <Grid item xs={3} sm={3} md={3} lg={3}>
-              Solid Color
-            </Grid>
-          </Grid>
         </div>
         
       </Drawer>

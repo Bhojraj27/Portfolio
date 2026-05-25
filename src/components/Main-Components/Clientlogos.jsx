@@ -42,17 +42,28 @@ const useStyles = makeStyles((theme) => ({
   },
   logoContainer: {
     marginBottom: "74px",
+    border: "1px solid var(--line)",
+    borderRadius: 18,
+    background: "linear-gradient(145deg, var(--surface), var(--surface-muted))",
+    padding: 14,
+    transition: "all .3s ease",
     "& img": {
       display: "block",
-      opacity: 0.3,
+      opacity: 0.58,
       transition: "0.3s",
+      borderRadius: 12,
     },
     "& img:hover": {
       opacity: 1,
     },
+    "&:hover": {
+      transform: "translateY(-4px)",
+      borderColor: "rgba(40,233,140,0.34)",
+      boxShadow: "var(--panel_shadow)",
+    },
   },
   h4: {
-    color: "#fff",
+    color: "var(--text)",
     textTransform: "uppercase",
     fontSize: "14px",
     fontWeight: 300,

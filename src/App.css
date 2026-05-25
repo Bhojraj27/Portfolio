@@ -1,6 +1,47 @@
 
 :root {
   --primary_color: #28e98c;
+  --bg: #08111a;
+  --bg-soft: rgba(8, 17, 26, 0.76);
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-strong: rgba(255, 255, 255, 0.08);
+  --surface-muted: rgba(255, 255, 255, 0.035);
+  --surface-chip: rgba(255, 255, 255, 0.045);
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --text: #ffffff;
+  --text-soft: #dddddd;
+  --muted: #9ca3af;
+  --muted-strong: #6b7280;
+  --floating-surface: rgba(10, 16, 24, 0.72);
+  --floating-surface-hover: rgba(10, 16, 24, 0.9);
+  --input-bg: rgba(255, 255, 255, 0.03);
+  --button-text: #06110d;
+  --panel_bg: rgba(17, 24, 39, 0.56);
+  --panel_border: rgba(255, 255, 255, 0.1);
+  --panel_shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+}
+
+:root[data-theme="light"] {
+  --bg: #f5f8fc;
+  --bg-soft: rgba(245, 248, 252, 0.78);
+  --surface: rgba(255, 255, 255, 0.74);
+  --surface-strong: rgba(255, 255, 255, 0.92);
+  --surface-muted: rgba(15, 23, 42, 0.035);
+  --surface-chip: rgba(15, 23, 42, 0.045);
+  --line: rgba(15, 23, 42, 0.12);
+  --line-strong: rgba(15, 23, 42, 0.18);
+  --text: #0f172a;
+  --text-soft: #334155;
+  --muted: #475569;
+  --muted-strong: #64748b;
+  --floating-surface: rgba(255, 255, 255, 0.76);
+  --floating-surface-hover: rgba(255, 255, 255, 0.96);
+  --input-bg: rgba(15, 23, 42, 0.035);
+  --button-text: #06110d;
+  --panel_bg: rgba(255, 255, 255, 0.74);
+  --panel_border: rgba(15, 23, 42, 0.1);
+  --panel_shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
 }
 *{
   margin: 0;
@@ -31,14 +72,43 @@ body {
   font-family: 'Inter', sans-serif !important;
   font-size: 16px;
   scroll-behavior: smooth;
-  color: #999999;
-  background: #1f1f1f;
+  color: var(--muted);
+  background: var(--bg);
   line-height: 1.7;
   overflow-x: hidden !important;
-  height: 100vh;
+  min-height: 100vh;
+}
+.App {
+  position: relative;
+  isolation: isolate;
+}
+.App:before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 68% 20%, rgba(40, 233, 140, 0.12), transparent 28%),
+    radial-gradient(circle at 30% 18%, rgba(56, 189, 248, 0.08), transparent 24%);
+}
+:root[data-theme="light"] .App:before {
+  background:
+    radial-gradient(circle at 68% 20%, rgba(40, 233, 140, 0.16), transparent 28%),
+    radial-gradient(circle at 30% 18%, rgba(56, 189, 248, 0.12), transparent 24%);
+}
+.ambient-scene {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+}
+.ambient-scene canvas {
+  width: 100% !important;
+  height: 100% !important;
 }
 .bg-white {
-  background: #fff;
+  background: var(--surface-strong);
 }
 img {
   max-width: 100%;
@@ -94,11 +164,11 @@ ul {
 }
 .subtitle {
   font-size: 12px;
-  color: #ffffff;
+  color: var(--text);
   text-transform: uppercase;
   font-weight: 300;
   margin: 0;
-  border: 1px solid #565656;
+  border: 1px solid var(--line-strong);
   padding: 9px 20px;
   border-radius: 30px;
   margin-bottom: 53px;
@@ -115,7 +185,7 @@ ul {
 
 .hero-section{
   overflow: hidden;
-  padding:  68px 0;
+  padding:  28px 0 52px;
   position: relative;
 }
 .page-section {
@@ -130,7 +200,7 @@ overflow-x: hidden;
 .section-header h1 {
   font-size: 48px;
   line-height: 60px;
-  color: #fff;
+  color: var(--text);
   font-weight: 300;
   margin-bottom: 33px;
 

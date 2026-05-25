@@ -39,11 +39,11 @@ const useStyles = makeStyles((theme) => ({
   subtitle: {
     fontFamily: "Inter !important",
     fontSize: 12,
-    color: "#ffffff",
+    color: "var(--text)",
     textTransform: "uppercase",
     fontWeight: 300,
     margin: 0,
-    border: "1px solid #565656",
+    border: "1px solid var(--line-strong)",
     padding: "9px 20px",
     borderRadius: 30,
     marginBottom: 53,
@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
   },
   sectionHeader: {
     fontSize: 48,
-    color: "#fff",
+    color: "var(--text)",
     fontWeight: 300,
     marginBottom: 33,
     [theme.breakpoints.down("xs")]: {
@@ -74,9 +74,17 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 10,
   },
   testimonialItemInner: {
-    border: "2px solid #565656",
+    border: "2px solid var(--line-strong)",
     borderRadius: 30,
     padding: "50px 50px 43px 50px",
+  },
+  galleryFrame: {
+    border: "1px solid var(--line)",
+    borderRadius: 28,
+    background: "linear-gradient(145deg, var(--surface), var(--surface-muted))",
+    padding: 18,
+    boxShadow: "var(--panel_shadow)",
+    backdropFilter: "blur(18px)",
   },
   author: {
     gap: 16,
@@ -92,13 +100,13 @@ const useStyles = makeStyles((theme) => ({
   authorInfo: {
     fontSize: 18,
     fontWeight: 300,
-    color: "#fff",
+    color: "var(--text)",
     marginBottom: 6,
     fontFamily: "Inter",
   },
   p: {
     fontSize: "24px",
-    color: "#fff",
+    color: "var(--text)",
     fontWeight: 300,
     lineHeight: "36px",
     marginBottom: "27px",
@@ -108,7 +116,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   designation: {
-    color: "#999999",
+    color: "var(--muted)",
     fontSize: 13,
     margin: 0,
     lineHeight: 1.3,
@@ -116,7 +124,7 @@ const useStyles = makeStyles((theme) => ({
   },
   projectBtn: {
     fontSize: 12,
-    color: "#fff",
+    color: "var(--text)",
     textTransform: "uppercase",
     display: "inline-block",
     fontFamily: "Inter",
@@ -133,9 +141,9 @@ const useStyles = makeStyles((theme) => ({
     background: "none",
     borderRadius: "50%",
     textAlign: "center",
-    border: "2px solid #565656",
+    border: "2px solid var(--line-strong)",
     fontSize: 18,
-    color: "#fff",
+    color: "var(--text)",
     transition: "0.3s",
     "&:hover": {
       borderColor: "#28e98c",
@@ -148,11 +156,11 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 300,
   },
   left: {
-    color: "#fff",
+    color: "var(--text)",
   },
   h1: {
-    color: "#fff",
-    fontSize: 48,
+    color: "var(--text)",
+    fontSize: "clamp(2rem, 4vw, 3rem)",
     fontWeight: 300,
     marginBottom: 33,
     fontFamily: "Inter",
@@ -200,7 +208,7 @@ export default function Gallery() {
               <span className={classes.sectionHeaderSpan}> Certifications</span>
             </Typography>
           </div>
-          <div className="testimonial-slider-wrap" data-aos="fade-up">
+          <div className={`${classes.galleryFrame} testimonial-slider-wrap`} data-aos="fade-up">
             <OwlCarousel className="owl-theme" {...options}>
               <div className="item">
                 <img className={classes.img}  src="images/awards/11.jpg" alt="carousel" />

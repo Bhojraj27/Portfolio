@@ -5,8 +5,12 @@ import { Container, Typography } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   leftSidebar: {
     marginTop: '30px',
-    border: "1px solid #565656",
+    border: "1px solid var(--line)",
     borderRadius: "30px",
+    background:
+      "linear-gradient(145deg, var(--surface-strong), var(--surface-muted))",
+    backdropFilter: "blur(18px)",
+    boxShadow: "var(--panel_shadow)",
     left: "20px",
     maxWidth: "485px",
     padding: "50px",
@@ -54,6 +58,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "30px",
     display: "block",
     marginBottom: "56px",
+    border: "1px solid var(--line)",
     [theme.breakpoints.down("lg")]: {
       marginBottom: "36px",
       marginLeft: "auto",
@@ -78,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   designation: {
-    color: "#fff",
+    color: "var(--text)",
     fontFamily:"Inter !important",
     fontSize: "10px",
     fontWeight: 500,
@@ -90,7 +95,7 @@ const useStyles = makeStyles((theme) => ({
   },
   address: {
     textAlign: "center",
-    color: "#fff",
+    color: "var(--text)",
     fontFamily:"Inter",
     fontSize: "14px",
     fontWeight: 300,
@@ -100,7 +105,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "24px",
     fontWeight: 300,
     textAlign: "center",
-    color: "#fff",
+    color: "var(--text)",
     fontFamily:"Inter"
   },
   copyright: {
@@ -119,9 +124,10 @@ const useStyles = makeStyles((theme) => ({
    
   },
   socialProfileLink: {
-    border: "2px solid #565656",
+    border: "1px solid var(--line-strong)",
+    background: "var(--surface-muted)",
     borderRadius: "50%",
-    color: "#999",
+    color: "var(--muted)",
     display: "block",
     fontSize: "20px",
     height: "50px",
@@ -130,7 +136,9 @@ const useStyles = makeStyles((theme) => ({
     transition: ".3s",
     width: "50px",
     '&:hover':{
-      borderColor: "var(--primary_color)"
+      borderColor: "var(--primary_color)",
+      color: "var(--primary_color)",
+      transform: "translateY(-3px)",
     }, 
     [theme.breakpoints.down("xl")]: {
       marginBottom: "30px",
@@ -146,7 +154,7 @@ const useStyles = makeStyles((theme) => ({
     background: "var(--primary_color)",
     border: "2px solid var(--primary_color)",
     borderRadius: "30px",
-    color: "#000",
+    color: "var(--button-text)",
     cursor: "pointer",
     '& display': "block",
     display: "inline-flex",

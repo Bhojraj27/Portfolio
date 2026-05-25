@@ -43,11 +43,11 @@ const useStyles = makeStyles((theme) => ({
   subtitle: {
     fontFamily: "Inter !important",
     fontSize: 12,
-    color: "#ffffff",
+    color: "var(--text)",
     textTransform: "uppercase",
     fontWeight: 300,
     margin: 0,
-    border: "1px solid #565656",
+    border: "1px solid var(--line-strong)",
     padding: "9px 20px",
     borderRadius: 30,
     marginBottom: 53,
@@ -60,8 +60,8 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 10,
   },
   h1: {
-    color: "#fff",
-    fontSize: "48px",
+    color: "var(--text)",
+    fontSize: "clamp(2rem, 4vw, 3rem)",
     fontWeight: 300,
     marginBottom: 33,
     fontFamily: "Inter",
@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "90px",
   },
   pricingTable: {
-    border: "1px solid #565656",
+    border: "1px solid var(--line-strong)",
     borderRadius: "30px",
     padding: "37px 40px 40px 40px",
     height: "100%",
@@ -84,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     transition: ".3s",
     "&:hover": {
-      borderColor: "# 28e98c",
+      borderColor: "var(--primary_color)",
     },
   }, 
   top: {
@@ -95,7 +95,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign:"right"
   },
   pricingTableHeader: {
-    borderBottom: "1px solid #555555",
+    borderBottom: "1px solid var(--line)",
     paddingBottom: "20px",
     marginBottom: "34px",
     
@@ -103,7 +103,7 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "18px",
       textTransform: "uppercase",
       fontWeight: 300,
-      color: "#fff",
+      color: "var(--text)",
       margin: 0,
       fontFamily: "Inter",
       
@@ -111,19 +111,19 @@ const useStyles = makeStyles((theme) => ({
     "& p": {
       fontSize: "13px",
       lineHeight: "20px",
-      color: "#999999",
+      color: "var(--muted)",
       margin: 0,
       fontFamily: "Inter",
       
     },
     "& h1": {
       fontSize: "48px",
-      color: "# 28e98c",
+      color: "var(--primary_color)",
       fontWeight: 300,
       margin: 0,
       "& span": {
         fontSize: "24px",
-        color: "#999999",
+        color: "var(--muted)",
       },
       fontFamily: "Inter",
       
@@ -133,7 +133,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "80px",
     "& li": {
       fontSize: "14px",
-      color: "#fff",
+      color: "var(--text)",
       lineHeight: "24px",
       fontWeight: 300,
       marginBottom: "10px",
@@ -146,11 +146,11 @@ const useStyles = makeStyles((theme) => ({
   info: {
     fontWeight: 500,
     fontSize: "14px",
-    color: "#fff",
+    color: "var(--text)",
     lineHeight: "24px",
     margin: "60px 0 0 0",
     "& a": {
-      color: "# 28e98c",
+      color: "var(--primary_color)",
       textDecoration: "underline",
     },
     fontFamily: "Inter",
@@ -165,7 +165,6 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "30px",
     justifyContent: "center",
     textTransform: "uppercase",
-    border: "none",
     transition: ".3s",
     cursor: "pointer",
     border: `2px solid var(--primary_color)`,
@@ -184,7 +183,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   span: {
-    color: "#28e98c",
+    color: "var(--primary_color)",
   },
 }));
 
