@@ -5,11 +5,19 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import { Grid } from "@material-ui/core";
+import {
+  Build as BuildIcon,
+  Category as CategoryIcon,
+  CloudQueue as CloudQueueIcon,
+  Code as CodeIcon,
+  Memory as MemoryIcon,
+  Storage as StorageIcon,
+} from "@material-ui/icons";
 
 const skillGroups = [
   {
     title: "Frontend",
-    icon: "las la-laptop-code",
+    Icon: CodeIcon,
     accent: "#28e98c",
     description: "Interfaces, data flows, routing, forms, motion, and dashboards.",
     skills: [
@@ -29,14 +37,14 @@ const skillGroups = [
   },
   {
     title: "Backend",
-    icon: "las la-server",
+    Icon: StorageIcon,
     accent: "#38bdf8",
     description: "APIs and realtime systems for product-grade applications.",
     skills: ["Node.js", "Express.js", "RESTful APIs", "WebSocket", "SSE", "JWT"],
   },
   {
     title: "AI & Integrations",
-    icon: "las la-brain",
+    Icon: MemoryIcon,
     accent: "#a78bfa",
     description: "AI workflows plus the external services that ship real product features.",
     skills: [
@@ -52,14 +60,14 @@ const skillGroups = [
   },
   {
     title: "Cloud & Databases",
-    icon: "las la-cloud",
+    Icon: CloudQueueIcon,
     accent: "#fbbf24",
     description: "Storage, queues, caching, and persistence for scalable systems.",
     skills: ["MongoDB", "Redis", "Firebase Firestore", "AWS S3", "AWS SQS"],
   },
   {
     title: "Tools",
-    icon: "las la-tools",
+    Icon: BuildIcon,
     accent: "#fb7185",
     description: "Daily engineering workflow, delivery, monitoring, and collaboration.",
     skills: ["Git", "GitHub", "Sentry", "Postman", "Jira"],
@@ -93,6 +101,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 1,
     fontSize: 14,
     marginRight: 10,
+    color: "currentColor",
   },
   skillsContent: {
     maxWidth: 770,
@@ -183,6 +192,7 @@ const useStyles = makeStyles((theme) => ({
     border: "1px solid var(--line)",
     flexShrink: 0,
     fontSize: 23,
+    padding: 8,
   },
   groupTitle: {
     color: "var(--text)",
@@ -234,7 +244,7 @@ export default function Skills() {
           <div className={classes.skillsContent}>
             <div>
               <Typography className={classes.subtitle} data-aos="fade-up">
-                <i className={`${classes.subtitleIcon} las la-shapes`}></i>
+                <CategoryIcon className={classes.subtitleIcon} />
                 my skills
               </Typography>
               <Typography className={`scroll-animation ${classes.h1}`} data-aos="fade-up">
@@ -257,7 +267,7 @@ export default function Skills() {
                 >
                   <div className={classes.groupCard} style={{ "--accent": group.accent }}>
                     <div className={classes.groupHeader}>
-                      <i className={`${group.icon} ${classes.groupIcon}`}></i>
+                      <group.Icon className={classes.groupIcon} />
                       <div>
                         <Typography className={classes.groupTitle}>{group.title}</Typography>
                         <Typography className={classes.groupDescription}>

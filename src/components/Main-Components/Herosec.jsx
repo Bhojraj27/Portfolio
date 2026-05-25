@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
+import HomeIcon from "@material-ui/icons/Home";
 
 const useStyles = makeStyles((theme) => ({
   bodyOverlay: {
@@ -205,6 +206,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 14,
     marginBottom: 1,
     marginRight: 10,
+    color: "currentColor",
   },
   "@keyframes rotating": {
     "0%": {
@@ -258,7 +260,7 @@ export default function Herosec() {
             <div className={`${classes.heroContent} ${classes.ContentWidth}`}>
               <div className={classes.heroPanel}>
                 <Typography className={classes.subTitle} data-aos="fade-up">
-                  <i className={`${classes.subTitleIcon} las la-home`}></i>{" "}
+                  <HomeIcon className={classes.subTitleIcon} />{" "}
                   Introduce
                 </Typography>
 

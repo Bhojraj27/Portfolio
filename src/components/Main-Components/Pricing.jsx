@@ -6,6 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { Container } from "@material-ui/core";
+import { LocalOffer as LocalOfferIcon } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   customContainer: {
@@ -58,6 +59,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 1,
     fontSize: 14,
     marginRight: 10,
+    color: "currentColor",
   },
   h1: {
     color: "var(--text)",
@@ -201,7 +203,7 @@ export default function Pricing() {
         <div className={classes.ContentWidth}>
           <div className="section-header">
             <Typography className={classes.subtitle} data-aos="fade-up">
-              <i className={`las la-dollar-sign ${classes.subTitleIcon}`}></i>{" "}
+              <LocalOfferIcon className={classes.subtitleIcon} />{" "}
               pricing
             </Typography>
             <Typography variant="h1" className={classes.h1} data-aos="fade-up">

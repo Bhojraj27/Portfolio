@@ -9,8 +9,18 @@ import {
   IconButton,
 } from "@material-ui/core";
 import {
- 
+  Category as CategoryIcon,
   Close as CloseIcon,
+  Collections as CollectionsIcon,
+  Dashboard as DashboardIcon,
+  Email as EmailIcon,
+  GitHub as GitHubIcon,
+  Home as HomeIcon,
+  LinkedIn as LinkedInIcon,
+  MailOutline as MailOutlineIcon,
+  PersonOutline as PersonOutlineIcon,
+  ViewStream as ViewStreamIcon,
+  WorkOutline as WorkOutlineIcon,
 } from "@material-ui/icons";
 const drawerWidth = 350;
 
@@ -122,6 +132,10 @@ const useStyles = makeStyles((theme) => ({
     color: "var(--muted)",
     fontSize: "16px",
     minWidth: '30px',
+    "& svg": {
+      color: "currentColor",
+      fontSize: 19,
+    },
   },
   listItemText: {
     position: "relative",
@@ -156,8 +170,15 @@ const useStyles = makeStyles((theme) => ({
     color: "var(--muted)",
     transition: ".3s",
     fontSize: "16px",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
     "&:hover": {
       color: "var(--primary_color)",
+    },
+    "& svg": {
+      color: "currentColor",
+      fontSize: 19,
     },
   },
   activeSocialLink: {
@@ -199,36 +220,36 @@ export default function Rsidemenu() {
   };
 
   const menuItems = [
-    { text: "Home", icon: <i className="las la-home"></i>, href: "/" },
-    { text: "About", icon: <i className="lar la-user"></i>, href: "/About" },
+    { text: "Home", Icon: HomeIcon, href: "/" },
+    { text: "About", Icon: PersonOutlineIcon, href: "/About" },
     {
       text: "Resume",
-      icon: <i className="las la-briefcase"></i>,
+      Icon: WorkOutlineIcon,
       href: "/Resume",
     },
     {
       text: "Services",
-      icon: <i className="las la-stream"></i>,
+      Icon: ViewStreamIcon,
       href: "/Services",
     },
     {
       text: "Skills",
-      icon: <i className="las la-shapes"></i>,
+      Icon: CategoryIcon,
       href: "/Skills",
     },
     {
       text: "Portfolios",
-      icon: <i className="las la-grip-vertical"></i>,
+      Icon: DashboardIcon,
       href: "/Portfolio",
     },
     {
       text: "Gallery",
-      icon: <i className="lar la-images"></i>,
+      Icon: CollectionsIcon,
       href: "/Gallery",
     },
     {
       text: "Contact",
-      icon: <i className="las la-envelope"></i>,
+      Icon: MailOutlineIcon,
       href: "/Contact",
     },
   ];
@@ -260,23 +281,27 @@ export default function Rsidemenu() {
             <p className={classes.p}>Menu</p>
            
             <List>
-              {menuItems.map((item, index) => (
-                <ListItem
-                  button
-                  component="a"
-                  href={item.href}
-                  onClick={toggleDrawer(false)}
-                  key={index}
-                  className={classes.listItem}
-                >
-                  <ListItemIcon className={classes.listItemIcon}>
-                    {item.icon}
-                  </ListItemIcon>
-                  <ListItemText className={classes.listItemText}>
-                    {item.text}
-                  </ListItemText>
-                </ListItem>
-              ))}
+              {menuItems.map((item) => {
+                const Icon = item.Icon;
+
+                return (
+                  <ListItem
+                    button
+                    component="a"
+                    href={item.href}
+                    onClick={toggleDrawer(false)}
+                    key={item.text}
+                    className={classes.listItem}
+                  >
+                    <ListItemIcon className={classes.listItemIcon}>
+                      <Icon />
+                    </ListItemIcon>
+                    <ListItemText className={classes.listItemText}>
+                      {item.text}
+                    </ListItemText>
+                  </ListItem>
+                );
+              })}
             </List>
           </div>
           <div className={classes.sidebarSocial}>
@@ -288,7 +313,7 @@ export default function Rsidemenu() {
                   href="https://linkedin.com/in/bhojraj-chavan"
                   className={classes.sidebarSocialLink}
                 >
-                  <i className="lab la-linkedin-in"></i>
+                  <LinkedInIcon />
                 </a>
               </li>
               <li>
@@ -296,7 +321,7 @@ export default function Rsidemenu() {
                   href="https://github.com/Bhojraj27"
                   className={classes.sidebarSocialLink}
                 >
-                  <i className="lab la-github"></i>
+                  <GitHubIcon />
                 </a>
               </li>
               <li>
@@ -304,7 +329,7 @@ export default function Rsidemenu() {
                   href="mailto:bhojrajchavan5@gmail.com"
                   className={classes.sidebarSocialLink}
                 >
-                  <i className="las la-envelope"></i>
+                  <EmailIcon />
                 </a>
               </li>
             </ul>

@@ -3,6 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Typography } from "@material-ui/core";
+import { PersonOutline as PersonOutlineIcon } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   ContentWidth: {
@@ -70,6 +71,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 14,
     marginBottom: 1,
     marginRight: 10,
+    color: "currentColor",
   },
   span: {
     color: "var(--primary_color)",
@@ -112,7 +114,7 @@ export default function About() {
               className={classes.subTitle}
               data-aos="fade-up"
             >
-              <i className={`${classes.subTitleIcon} lar la-user`}></i> About
+              <PersonOutlineIcon className={classes.subTitleIcon} /> About
             </Typography>
             <Typography variant="h1" className={classes.h1} data-aos="fade-up">
               Building scalable products with <br />

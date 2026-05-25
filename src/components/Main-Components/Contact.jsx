@@ -16,6 +16,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { CloudUpload as CloudUploadIcon, Dashboard as DashboardIcon } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   ContentWidth: {
@@ -235,6 +236,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 1,
     fontSize: 14,
     marginRight: 10,
+    color: "currentColor",
   },
   sectionHeader: {
     marginBottom: "53px",
@@ -294,9 +296,7 @@ export default function Contact() {
           <div className={classes.ContentWidth}>
             <div>
               <Typography className={classes.subtitle} data-aos="fade-up">
-                <i
-                  className={`las la-grip-vertical ${classes.subTitleIcon}`}
-                ></i>{" "}
+                <DashboardIcon className={classes.subtitleIcon} />{" "}
                 Contact
               </Typography>
               <div className={classes.sectionHeader}>
@@ -476,9 +476,7 @@ export default function Contact() {
                     </Grid>
                     <Grid item xs={12}>
                       <Typography className={classes.label}>
-                        <i
-                          className={`las la-cloud-upload-alt ${classes.i}`}
-                        ></i>
+                        <CloudUploadIcon className={classes.i} />
                         Add an attachment
                         <input
                           className={classes.input}

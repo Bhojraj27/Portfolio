@@ -3,6 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Typography } from "@material-ui/core";
+import { WorkOutline as WorkOutlineIcon } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   resumeArea: {
@@ -140,6 +141,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 14,
     marginBottom: 1,
     marginRight: 10,
+    color: "currentColor",
   },
   span: {
     color: "var(--primary_color)",
@@ -169,7 +171,7 @@ export default function Resume() {
         >
           <div className={`section-header ${classes.contentWidth}`}>
             <Typography className={classes.subTitle} data-aos="fade-up">
-              <i className={`las la-briefcase ${classes.subTitleIcon}`}></i>{" "}
+              <WorkOutlineIcon className={classes.subTitleIcon} />{" "}
               Resume
             </Typography>
             <Typography className={classes.h1} data-aos="fade-up">

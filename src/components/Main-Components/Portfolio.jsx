@@ -3,6 +3,7 @@ import { Container, Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { ArrowRightAlt as ArrowRightAltIcon, Dashboard as DashboardIcon } from "@material-ui/icons";
 
 const projects = [
   {
@@ -68,6 +69,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 1,
     fontSize: 14,
     marginRight: 10,
+    color: "currentColor",
   },
   sectionHeader: {
     marginBottom: "53px",
@@ -221,6 +223,10 @@ const useStyles = makeStyles((theme) => ({
       color: "var(--primary_color)",
     },
   },
+  liveLinkIcon: {
+    color: "currentColor",
+    fontSize: 18,
+  },
   projectLinks: {
     display: "flex",
     flexWrap: "wrap",
@@ -242,7 +248,7 @@ export default function Portfolio() {
           <div className={classes.ContentWidth}>
             <div>
               <Typography className={classes.subtitle} data-aos="fade-up">
-                <i className={`las la-grip-vertical ${classes.subtitleIcon}`}></i>
+                <DashboardIcon className={classes.subtitleIcon} />
                 Portfolio
               </Typography>
               <div className={classes.sectionHeader}>
@@ -296,7 +302,7 @@ export default function Portfolio() {
                       <div className={classes.projectLinks}>
                         {project.links.map((link) => (
                           <a key={link.label} href={link.href} className={classes.liveLink}>
-                            {link.label} <i className="las la-arrow-right"></i>
+                            {link.label} <ArrowRightAltIcon className={classes.liveLinkIcon} />
                           </a>
                         ))}
                       </div>

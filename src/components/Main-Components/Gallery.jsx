@@ -7,6 +7,11 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Typography from "@material-ui/core/Typography";
 import { Container } from "@material-ui/core";
+import {
+  Comment as CommentIcon,
+  KeyboardArrowLeft as KeyboardArrowLeftIcon,
+  KeyboardArrowRight as KeyboardArrowRightIcon,
+} from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   customContainer: {
@@ -56,6 +61,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 1,
     fontSize: 14,
     marginRight: 10,
+    color: "currentColor",
   },
   sectionHeader: {
     fontSize: 48,
@@ -178,12 +184,12 @@ export default function Gallery() {
 
   const CustomPrevButton = ({ onClick }) => (
     <button className={classes.testimonialNavButton } onClick={onClick}>
-      <i className="las la-angle-left"></i>
+      <KeyboardArrowLeftIcon />
     </button>
   );
   const CustomNextButton = ({ onClick }) => (
     <button className={classes.testimonialNavButton } onClick={onClick}>
-      <i className="las la-angle-right"></i>
+      <KeyboardArrowRightIcon />
     </button>
   );
   const options = {
@@ -200,7 +206,7 @@ export default function Gallery() {
         <div className={classes.ContentWidth}>
           <div className={classes.sectionHeader}>
             <Typography className={classes.subtitle} data-aos="fade-up">
-              <i className={classes.subtitleIcon + " lar la-comment"}></i>
+              <CommentIcon className={classes.subtitleIcon} />
               Gallery
             </Typography>
             <Typography className={classes.h1} data-aos="fade-up">

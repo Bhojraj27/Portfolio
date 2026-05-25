@@ -1,6 +1,27 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
+import {
+  Category as CategoryIcon,
+  Collections as CollectionsIcon,
+  Dashboard as DashboardIcon,
+  Home as HomeIcon,
+  MailOutline as MailOutlineIcon,
+  PersonOutline as PersonOutlineIcon,
+  ViewStream as ViewStreamIcon,
+  WorkOutline as WorkOutlineIcon,
+} from "@material-ui/icons";
+
+const menuItems = [
+  { text: "Home", icon: HomeIcon, to: "/" },
+  { text: "About", icon: PersonOutlineIcon, to: "/About" },
+  { text: "Resume", icon: WorkOutlineIcon, to: "/Resume" },
+  { text: "Services", icon: ViewStreamIcon, to: "/Services" },
+  { text: "Skills", icon: CategoryIcon, to: "/Skills" },
+  { text: "Portfolios", icon: DashboardIcon, to: "/Portfolio" },
+  { text: "Gallery", icon: CollectionsIcon, to: "/Gallery" },
+  { text: "Contact", icon: MailOutlineIcon, to: "/Contact" },
+];
 
 
 const useStyles = makeStyles((theme) => ({
@@ -46,7 +67,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   menuItemIcon: {
-       fontSize: "40px !important",
+    color: "currentColor",
+    fontSize: "22px !important",
   },
   menuItemText: {
     background: "var(--surface-strong)",
@@ -80,55 +102,18 @@ export default function Scrollnav() {
  
   return (
     <ul className={classes.menu}>
-      <li>
-        <Link className={`${classes.menuItem}`} to="/">
-        
-          <span className={classes.menuItemText}>Home</span>{" "}
-          <i className="las la-home"></i>
-        </Link>
-      </li>
-      <li>
-        <Link className={`${classes.menuItem}`} to="/About">
-          <span className={classes.menuItemText}>About</span>{" "}
-          <i className="lar la-user"></i>
-        </Link>
-      </li>
-      <li>
-        <Link className={`${classes.menuItem}`} to="/Resume">
-          <span className={classes.menuItemText}>Resume</span>{" "}
-          <i className="las la-briefcase"></i>
-        </Link>
-      </li>
-      <li>
-        <Link className={`${classes.menuItem}`} to="/Services">
-          <span className={classes.menuItemText}>Services</span>{" "}
-          <i className="las la-stream"></i>
-        </Link>
-      </li>
-      <li>
-        <Link className={`${classes.menuItem}`} to="/Skills">
-          <span className={classes.menuItemText}>Skills</span>{" "}
-          <i className="las la-shapes"></i>
-        </Link>
-      </li>
-      <li>
-        <Link className={`${classes.menuItem}`} to="/Portfolio">
-          <span className={classes.menuItemText}>Portfolios</span>{" "}
-          <i className="las la-grip-vertical"></i>
-        </Link>
-      </li>
-      <li>
-        <Link className={`${classes.menuItem} scroll-to`} to="/Gallery">
-          <span className={classes.menuItemText}>Gallery</span>{" "}
-          <i className="lar la-images"></i>
-        </Link>
-      </li>
-      <li>
-        <Link className={`${classes.menuItem} scroll-to`} to="/Contact">
-          <span className={classes.menuItemText}>Contact</span>{" "}
-          <i className="las la-envelope"></i>
-        </Link>
-      </li>
+      {menuItems.map((item) => {
+        const Icon = item.icon;
+
+        return (
+          <li key={item.text}>
+            <Link className={classes.menuItem} to={item.to}>
+              <span className={classes.menuItemText}>{item.text}</span>
+              <Icon className={classes.menuItemIcon} />
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
 }

@@ -4,6 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid, Typography } from '@material-ui/core';
+import { Code as CodeIcon, ViewStream as ViewStreamIcon } from '@material-ui/icons';
 const useStyles = makeStyles((theme) => ({
     servicesArea: {
         paddingTop: '50px',
@@ -72,6 +73,22 @@ const useStyles = makeStyles((theme) => ({
                     fontSize: '24px',
                 },},
     
+    },
+    serviceIcon: {
+        position: 'absolute',
+        fontSize: '30px',
+        color: "var(--primary_color)",
+        top: '45px',
+        right: '45px',
+        [theme.breakpoints.down("sm")]: {
+            top:'45px',
+            right:'24px'
+        },
+        [theme.breakpoints.down("md")]: {
+            top: '20px',
+            right: '25px',
+            fontSize: '24px',
+        },
     },
     items1:{
         border: '1px solid var(--line)',
@@ -196,6 +213,7 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '14px',
         marginBottom: '1px',
         marginRight: '10px',
+        color: 'currentColor',
     },
     span: {
         color: "var(--primary_color)",
@@ -222,7 +240,7 @@ const Services = () => {
                     <Grid container spacing={3}>
                      <Grid item sm={12} md={12} lg={12} data-aos="fade-right" >
                         <Typography className={classes.subTitle} data-aos="fade-up">
-                            <i className={`las la-stream ${classes.subTitleIcon}`} />
+                            <ViewStreamIcon className={classes.subTitleIcon} />
                             Services
                         </Typography>
                         <Typography className={`scroll-animation ${classes.h1}`} data-aos="fade-up">
@@ -236,7 +254,7 @@ const Services = () => {
                     <Grid container spacing={2} >
                      <Grid item xs={12} sm={12} md={4} lg={12}  data-aos="fade-up" >
                       <div className={classes.items1} >
-                      <i className="las la-bezier-curve" />
+                      <CodeIcon className={classes.serviceIcon} />
                             <h2>Full Stack SaaS Development</h2>
                             <p >I build scalable React.js applications, Node.js APIs, AI integrations, admin systems, and cloud-backed workflows for production products.</p>
                             <span className="projects">3 live Projects</span>

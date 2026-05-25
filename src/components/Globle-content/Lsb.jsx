@@ -1,6 +1,12 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Typography } from "@material-ui/core";
+import {
+  Email as EmailIcon,
+  GitHub as GitHubIcon,
+  LinkedIn as LinkedInIcon,
+  MailOutline as MailOutlineIcon,
+} from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   leftSidebar: {
@@ -128,10 +134,10 @@ const useStyles = makeStyles((theme) => ({
     background: "var(--surface-muted)",
     borderRadius: "50%",
     color: "var(--muted)",
-    display: "block",
-    fontSize: "20px",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
     height: "50px",
-    lineHeight: "46px",
     textAlign: "center",
     transition: ".3s",
     width: "50px",
@@ -143,10 +149,10 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xl")]: {
       marginBottom: "30px",
     },
-    "& i": {
-      '&:hover':{
-        borderColor: "var(--primary_color)"
-      }, }
+  },
+  socialIcon: {
+    color: "currentColor",
+    fontSize: 22,
   },
   themeBtn: {
     width: "100%",
@@ -181,6 +187,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "24px",
     marginBottom: "3px",
     marginRight: "10px",
+    color: "currentColor",
   },
 }));
 
@@ -212,12 +219,12 @@ export default function Lsb() {
       <ul className={classes.socialProfile}>
         <li>
           <a href="https://linkedin.com/in/bhojraj-chavan" className={classes.socialProfileLink}>
-            <i className="lab la-linkedin-in"></i>
+            <LinkedInIcon className={classes.socialIcon} />
           </a>
         </li>
         <li>
           <a href="https://github.com/Bhojraj27" className={classes.socialProfileLink}>
-            <i className="lab la-github"></i>
+            <GitHubIcon className={classes.socialIcon} />
           </a>
         </li>
         <li>
@@ -225,12 +232,12 @@ export default function Lsb() {
             href="mailto:bhojrajchavan5@gmail.com"
             className={classes.socialProfileLink}
           >
-            <i className="las la-envelope"></i>
+            <EmailIcon className={classes.socialIcon} />
           </a>
         </li>
       </ul>
       <a href="/" className={classes.themeBtn}  onClick={downloadResume}>
-        <i className={classes.themeBtnIcon + " las la-envelope"}></i> Hire Me!
+        <MailOutlineIcon className={classes.themeBtnIcon} /> Hire Me!
       </a>
     </div>
   </Container>
