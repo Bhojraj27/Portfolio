@@ -38,16 +38,20 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       display: "block",
       left: 0,
-      margin: "24px auto 40px",
-      maxWidth: "680px",
+      margin: "14px auto 22px",
+      maxWidth: "min(680px, calc(100vw - 28px))",
       position: "relative",
       top: 0,
       transform: "translateY(0)",
     },
     '@media (max-width: 425px)':{
-      maxWidth:"340px !important",
-      padding: "28px 24px",
+      maxWidth:"calc(100vw - 28px) !important",
+      padding: "24px 20px",
       position: "relative",
+    },
+    "@media (max-height: 760px) and (min-width: 960px)": {
+      maxWidth: "340px",
+      padding: "20px 26px",
     },
   
     
@@ -83,7 +87,11 @@ const useStyles = makeStyles((theme) => ({
     },
     '@media (max-width: 425px)': {
       maxWidth: "205px",
-      marginBottom: "26px",
+      marginBottom: "22px",
+    },
+    "@media (max-height: 760px) and (min-width: 960px)": {
+      maxWidth: "190px",
+      marginBottom: "20px",
     },
   },
   sidebarHeader: {
@@ -96,6 +104,9 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("lg")]: {
       lineHeight: 1.4,
+    },
+    "@media (max-height: 760px) and (min-width: 960px)": {
+      marginBottom: "16px",
     },
   },
   designation: {
@@ -129,7 +140,11 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "18px",
     textAlign: "center",
     marginTop:'22px',
-    fontFamily:"Inter"
+    fontFamily:"Inter",
+    "@media (max-height: 760px) and (min-width: 960px)": {
+      marginTop: "16px",
+      marginBottom: "14px",
+    },
   },
   socialProfile: {
     gap: "8px",
@@ -138,6 +153,9 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     justifyContent: "center",
     marginBottom: "20px",
+    "@media (max-height: 760px) and (min-width: 960px)": {
+      marginBottom: "16px",
+    },
    
   },
   socialProfileLink: {

@@ -9,6 +9,46 @@ import Button from "@material-ui/core/Button";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import HomeIcon from "@material-ui/icons/Home";
 
+const heroRoles = [
+  "Senior Full Stack Developer",
+  "React.js Expert",
+  "AI Integration Specialist",
+];
+
+function useTypewriter(words) {
+  const [wordIndex, setWordIndex] = React.useState(0);
+  const [charIndex, setCharIndex] = React.useState(0);
+  const [isDeleting, setIsDeleting] = React.useState(false);
+
+  useEffect(() => {
+    const currentWord = words[wordIndex];
+    const pauseAtEnd = !isDeleting && charIndex === currentWord.length;
+    const pauseAtStart = isDeleting && charIndex === 0;
+
+    const timeout = window.setTimeout(
+      () => {
+        if (pauseAtEnd) {
+          setIsDeleting(true);
+          return;
+        }
+
+        if (pauseAtStart) {
+          setIsDeleting(false);
+          setWordIndex((index) => (index + 1) % words.length);
+          return;
+        }
+
+        setCharIndex((index) => index + (isDeleting ? -1 : 1));
+      },
+      pauseAtEnd ? 1200 : isDeleting ? 36 : 68
+    );
+
+    return () => window.clearTimeout(timeout);
+  }, [charIndex, isDeleting, wordIndex, words]);
+
+  return words[wordIndex].slice(0, charIndex);
+}
+
 const useStyles = makeStyles((theme) => ({
   bodyOverlay: {
     height: "100%",
@@ -40,6 +80,11 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 3,
     maxWidth: 610,
     padding: "28px 0",
+    [theme.breakpoints.down("md")]: {
+      maxWidth: "min(680px, calc(100vw - 36px))",
+      padding: "8px 0 20px",
+      margin: "0 auto",
+    },
   },
   heroEyebrow: {
     display: "inline-flex",
@@ -55,23 +100,40 @@ const useStyles = makeStyles((theme) => ({
       height: 1,
       background: "var(--primary_color)",
     },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 11,
+      gap: 8,
+      marginBottom: 12,
+    },
   },
 
   h1: {
-    fontSize: "clamp(2.6rem, 4.8vw, 4.45rem)",
+    fontSize: "clamp(2.25rem, 3.75vw, 3.85rem)",
     fontWeight: 300,
     letterSpacing: 0,
-    lineHeight: 1.08,
+    lineHeight: 1.12,
     marginBottom: "26px",
     fontFamily: "Inter",
     color: "var(--text)",
     [theme.breakpoints.down("xs")]: {
-      fontSize: "clamp(2rem, 10vw, 2.75rem)",
+      fontSize: "clamp(1.85rem, 8vw, 2.45rem)",
+      marginBottom: 18,
     },
   },
   span: {
     color: "var(--primary_color)",
 
+  },
+  typedRole: {
+    display: "block",
+    color: "var(--text)",
+    minHeight: "1.18em",
+  },
+  typingCursor: {
+    color: "var(--primary_color)",
+    display: "inline-block",
+    marginLeft: 4,
+    animation: "$cursorBlink 1s steps(2, start) infinite",
   },
   p: {
     marginBottom: 24,
@@ -162,7 +224,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       gap: 28,
       flexWrap: "wrap",
-      marginBottom: "35px",
+      marginTop: 20,
+      marginBottom: "24px",
     },
   },
   factsH1: {
@@ -224,8 +287,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       display: "block",
       left: 0,
-      margin: "20px auto auto",
-      maxWidth: "767px",
+      margin: "0 auto",
+      maxWidth: "min(680px, calc(100vw - 36px))",
       position: "relative",
       top: 0,
       transform: "translateY(0)",
@@ -240,6 +303,14 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 1130,
     padding: "0 15px",
   },
+  "@keyframes cursorBlink": {
+    "0%, 45%": {
+      opacity: 1,
+    },
+    "46%, 100%": {
+      opacity: 0,
+    },
+  },
   right: {
     display: "flex",
   },
@@ -247,6 +318,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Herosec() {
   const classes = useStyles();
+  const typedRole = useTypewriter(heroRoles);
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -269,8 +341,11 @@ export default function Herosec() {
                 </Typography>
 
                 <Typography className={classes.h1} data-aos="fade-up">
-                  Say Hi from <span className={classes.span}>Bhojraj</span>,
-                  Senior Full Stack Developer
+                  Say Hi from <span className={classes.span}>Bhojraj</span>
+                  <span className={classes.typedRole}>
+                    {typedRole}
+                    <span className={classes.typingCursor}>|</span>
+                  </span>
                 </Typography>
 
                 <Typography

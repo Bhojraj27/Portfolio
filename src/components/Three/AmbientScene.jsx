@@ -15,8 +15,8 @@ function useViewportProfile() {
       const width = window.innerWidth;
 
       setProfile({
-        isCompact: width < 900,
-        isLaptop: width >= 900 && width < 1500,
+        isCompact: width < 1180,
+        isLaptop: width >= 1180 && width < 1500,
       });
     };
 
@@ -81,7 +81,7 @@ function BackgroundParticles({ reducedMotion, palette, isCompact }) {
         color={palette.particle}
         size={isCompact ? 0.018 : 0.025}
         transparent
-        opacity={isCompact ? palette.particleOpacity * 0.55 : palette.particleOpacity}
+        opacity={isCompact ? palette.particleOpacity * 0.38 : palette.particleOpacity}
       />
     </points>
   );
@@ -168,8 +168,8 @@ function SignatureCluster({ reducedMotion, palette, isLaptop }) {
     <>
       <group
         ref={rootRef}
-        position={isLaptop ? [2.55, -0.06, -0.9] : [2.7, -0.08, -0.95]}
-        scale={isLaptop ? 0.78 : 0.88}
+        position={isLaptop ? [2.95, -0.08, -1.05] : [2.85, -0.08, -0.95]}
+        scale={isLaptop ? 0.68 : 0.84}
       >
         <mesh ref={coreRef}>
           <icosahedronGeometry args={[0.92, 2]} />

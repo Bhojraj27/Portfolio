@@ -22,11 +22,11 @@ import {
   ViewStream as ViewStreamIcon,
   WorkOutline as WorkOutlineIcon,
 } from "@material-ui/icons";
-const drawerWidth = 350;
+const drawerWidth = "min(86vw, 350px)";
 
 const useStyles = makeStyles((theme) => ({
   iconMenu: {
-    position: "absolute",
+    position: "fixed",
     right: "68px",
     top: "60px",
     width: "55px",
@@ -43,13 +43,19 @@ const useStyles = makeStyles((theme) => ({
     background: "var(--floating-surface)",
     backdropFilter: "blur(16px)",
     zIndex: 99,
-    [theme.breakpoints.down("xs")]: {
-      position:"fixed !important",
-      top:"30px",
-      right:"30px"
-    },
     [theme.breakpoints.down("md")]: {
-    position:"fixed !important"
+      right: "calc((100vw - min(680px, calc(100vw - 28px))) / 2 + 16px)",
+      top: 26,
+      width: 44,
+      height: 44,
+      gap: 3,
+      zIndex: 140,
+    },
+    [theme.breakpoints.down("xs")]: {
+      right: "30px",
+      top: 28,
+      width: 42,
+      height: 42,
     },
     "&:hover": {
       borderColor: "var(--primary_color)",
@@ -100,18 +106,16 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
     background: "var(--bg-soft)",
     backdropFilter: "blur(18px)",
+    color: "var(--text)",
 
     [theme.breakpoints.down("sm")]: {
-      menuButton: {
-        right: "5px",
-        top: "5px",
-      },
+      width: drawerWidth,
     },
   },
   listItem: {
-    width: "46%",
-    paddingLeft: "24%",
-    marginTop:"7px",
+    width: "100%",
+    padding: "10px 0",
+    marginTop:"6px",
     transition: ".3s",
     "&:hover": {
       color: "var(--primary_color)",
@@ -126,7 +130,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   responsive: {
-    maxWidth: "354px",
+    width: 0,
+    height: 0,
   },
   listItemIcon: {
     color: "var(--muted)",
@@ -154,11 +159,13 @@ const useStyles = makeStyles((theme) => ({
     },
     '& .MuiTypography-body1':{
       fontFamily: "Inter !important",
-      fontSize: "12px !important",color: "var(--muted)",
+      fontSize: "13px !important",
+      color: "var(--muted)",
     },
   },
   sidebarSocial: {
-    width: "46%",
+    width: "100%",
+    padding: "0 28px 28px",
     margin: "auto",
   },
   sidebarSocialUl: {
@@ -201,6 +208,16 @@ const useStyles = makeStyles((theme) => ({
       position: "absolute",
       right: "20px",
       top: "20px",
+  },
+  drawerContent: {
+    padding: "0 28px",
+  },
+  menuTitle: {
+    fontSize: "18px",
+    fontFamily: "Inter",
+    color: "var(--text)",
+    marginTop: "72px",
+    marginBottom: "22px",
   },
 }));
 
@@ -277,8 +294,8 @@ export default function Rsidemenu() {
           </IconButton>
         </div>
         <div>
-          <div>
-            <p className={classes.p}>Menu</p>
+          <div className={classes.drawerContent}>
+            <p className={classes.menuTitle}>Menu</p>
            
             <List>
               {menuItems.map((item) => {
